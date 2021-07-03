@@ -1,5 +1,7 @@
 /* 1.3 - Uso di variabili */
 
+/* Calcolo area di un rettangolo */
+
 #include <stdio.h>
 
 int main (int argc, const char * argv[])
@@ -19,4 +21,4 @@ int main (int argc, const char * argv[])
     printf ("\n");
     return 0;
 }
-// Marco Fioriloo 3/07/2021
+// Marco Fiorillo 3/07/2021
