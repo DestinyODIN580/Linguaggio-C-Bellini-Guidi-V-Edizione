@@ -6,7 +6,7 @@
 
 int base, altezza, area;
 
-int main (int argc, char const * argv[])
+int main (int argc, char const *argv[])
 {
     printf ("AREA RETTANGOLO\n\n");
 

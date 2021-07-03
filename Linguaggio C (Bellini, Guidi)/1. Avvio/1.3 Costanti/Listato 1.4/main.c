@@ -7,7 +7,7 @@
 #define BASE 3
 #define ALTEZZA 7
 
-int main (int argc, char const * argv[])
+int main (int argc, char const *argv[])
 {
     int area;
 
