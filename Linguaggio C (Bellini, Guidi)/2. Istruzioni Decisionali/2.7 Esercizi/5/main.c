@@ -10,6 +10,8 @@
     6) ris = (a*c-b) || (a>b)
     7) ris = ((a*c) != b) || (a>b)
     8) ris = (a>b) || (a<c) || (c==b)
+
+    Scrivere un programma che verifichi le risposte date.
 */
 
 #include <stdio.h>
