@@ -17,6 +17,7 @@ int main (int argc, char const *argv[])
     tenCounter = hunCounter = thoCounter = i = 0;
 
 
+    /* determinazione di tenCounter, hunCounter e thoCouter */
     printf ("Inserire 0 per terminare");
     do
     {
