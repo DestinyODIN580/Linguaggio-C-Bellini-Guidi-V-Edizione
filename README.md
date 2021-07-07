@@ -14,4 +14,8 @@ Soluzione agli esercizi e riassunto del libro
   3.12 Esercizi (6/11) --> 4.6 Esercizi (7/15)
 
 [7/07/2021]
-  4.6 Esercizi (8/15) --> 
+  4.6 Esercizi (8/15) --> 4.6 Esercizi (9/15)
+
+[8/07/2021]
+ 4.6 Esercizi (10/15) --> 
+
