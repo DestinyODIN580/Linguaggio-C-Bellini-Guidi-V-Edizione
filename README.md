@@ -17,5 +17,8 @@ Soluzione agli esercizi e riassunto del libro
   4.6 Esercizi (8/15) --> 4.6 Esercizi (9/15)
 
 [8/07/2021]
+ 4.6 Esercizi (10/15) --> 4.6 Esercizi (10/15)
+ 
+[9/07/2021]
  4.6 Esercizi (10/15) --> 
 
