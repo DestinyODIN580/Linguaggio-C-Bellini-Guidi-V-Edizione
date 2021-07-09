@@ -32,7 +32,7 @@ int main (int argc, char const *argv[])
     for (i = 0; i < n; i++)
         for (j = 0; j < m; j++)
         {
-            printf ("Inserisci lines %d colonna %d val: ", i, j);
+            printf ("Inserisci linea %d colonna %d val: ", i, j);
             scanf ("%d", &mat[i][j]);
         }
 
