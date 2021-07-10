@@ -21,6 +21,12 @@ Soluzione agli esercizi e riassunto del libro
  
 [9/07/2021]
  4.6 Esercizi (10/15) --> 4.6 Esercizi (13/15)
+<<<<<<< HEAD
+=======
+
+[10/07/2021]
+ 4.6 Esercizi (14/15) --> 
+>>>>>>> 4572de515b875ec9a9c555b93b922c6c088af4da
 
 [10/07/2021] 
  4.6 Esercizi (14/15) --> 4.6 Esericizi (14/15)
