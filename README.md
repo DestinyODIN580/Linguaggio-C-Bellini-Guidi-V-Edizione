@@ -26,4 +26,7 @@ Soluzione agli esercizi e riassunto del libro
  4.6 Esercizi (14/15) --> 4.6 Esericizi (14/15)
 
 [11/07/2021]
- 4.6 Esercizi (15/15) --> 
+ 4.6 Esercizi (15/15) --> 5.6 Esercizi (4/15)
+
+[12/07/2021]
+ 5.6 Esercizi (5/15) --> 
