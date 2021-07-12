@@ -29,4 +29,4 @@ Soluzione agli esercizi e riassunto del libro
  4.6 Esercizi (15/15) --> 5.6 Esercizi (4/14)
 
 [12/07/2021]
- 5.6 Esercizi (5/14) --> 
+ 5.6 Esercizi (5/14) --> 6.2 Esempi di uso delle stringhe
