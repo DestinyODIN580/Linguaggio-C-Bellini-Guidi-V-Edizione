@@ -30,3 +30,6 @@ Soluzione agli esercizi e riassunto del libro
 
 [12/07/2021]
  5.6 Esercizi (5/14) --> 6.2 Esempi di uso delle stringhe
+
+[13/07/2021]
+ 6.2 Esempi di uso delle stringhe --> 
