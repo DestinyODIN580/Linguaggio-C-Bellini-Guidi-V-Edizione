@@ -1,9 +1,6 @@
-/* 54.
-    Verificare, analogamente a quanto fatto in Figura 5.1, il comportamento della prima versione di bubblesort applicata
-    al seguente vettore:
-
-        vet = [3, 31, 1, 23, 41, 5, 0, 66, 2, 8, 88, 9, 91, 19, 99]
-
+/* 56.
+    Calcolare il numero di confronti effettuati dall’algoritmo di ordinamento ingenuo applicato al vettore dell’Esercizio 4
+    e confrontarlo con quello di bubblesort.
 */
 
 #include <stdio.h>
@@ -45,4 +42,4 @@ int main (int argc, char const *argv[])
     printf ("\n");
     return 0;
 }
-// Marco Fiorillo 11/07/2021
+// Marco Fiorillo 12/07/2021
