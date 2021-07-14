@@ -72,7 +72,7 @@ int main (int argc, char *argv[])
 		printf ("\n");
 		for (j = 0; j < whl; j++)
 		{
-			printf ("\{ "); 
+			printf ("{ "); 
 			for (k = 0; k < nums; k++)
 				printf ("%d ", mat[k][j][i]);			
 			printf ("};\n");
