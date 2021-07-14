@@ -35,4 +35,7 @@ Soluzione agli esercizi e riassunto del libro
  6.2 Esempi di uso delle stringhe --> 6.4 Esercizi (3/12)
 
 [14/07/2021]
- 6.4 Esercizi (4/12) --> 
+ 6.4 Esercizi (4/12) --> 6.4 Esercizi (5/12)
+
+[15/07/2021]
+ 6.4 Esercizi (6/12) --> 
