@@ -41,4 +41,7 @@ Soluzione agli esercizi e riassunto del libro
  6.4 Esercizi (6/12) --> 6.4 Esercizi (6/12)
 
 [16/07/2021]
- 6.4 Esercizi (6/12) --> 
+ 6.4 Esercizi (6/12) --> 6.4 Esercizi (6/12)
+
+[17/07/2021]
+ 6.4 Esercizi (6/12) -->
