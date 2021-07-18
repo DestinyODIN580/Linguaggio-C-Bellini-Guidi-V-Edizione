@@ -1,4 +1,4 @@
-/* 70.
+/* 60.
     Se il vettore è ordinato la ricerca completa può essere migliorata in modo da diminuire in media il numero di
     confronti da effettuare: come? Modificare in questo senso il programma esaminato nel presente capitolo.
 */
