@@ -19,10 +19,11 @@ int main (int argc, char const *argv[])
     int c;                  /* carattere in entrata */
     int i, j, k, f;         /* contatori */
 
+    i = 0;
+
 
     /* costruzione frase */
     printf ("Inserire frase > ");
-    i = 0;
     while ((c = getchar ()) != '\n')
         frase[i++] = c;
     frase[i] = '\0';
@@ -80,5 +81,3 @@ int main (int argc, char const *argv[])
     return 0;
 }
 // Marco Fiorillo 18/07/2021
-
-
