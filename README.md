@@ -47,4 +47,7 @@ Soluzione agli esercizi e riassunto del libro
  6.4 Esercizi (6/12) --> 6.4 Esercizi (6/12)
 
 [18/07/2021]
- 6.4 Esercizi (6/12) --> 
+ 6.4 Esercizi (6/12) --> 7.2 Sottoprogrammi C
+
+[19/07/2021]
+ 7.3 Dichiarazione di una funzione --> 
