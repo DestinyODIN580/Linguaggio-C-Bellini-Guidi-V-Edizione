@@ -4,7 +4,7 @@
 
 #include <stdio.h>
 
-int powFunc (int, int);         /* funzione che calcola la potenza con esponenti positivi */
+int powFunc (int, int);  /* funzione che calcola la potenza con esponenti positivi */
 
 int main (int argc, char const *argv[])
 {
