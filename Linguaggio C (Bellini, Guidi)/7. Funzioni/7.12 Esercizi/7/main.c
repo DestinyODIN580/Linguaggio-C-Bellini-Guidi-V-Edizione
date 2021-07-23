@@ -39,39 +39,51 @@ int main (int argc, char const *argv[])
     scanf ("%d", &GG);
 
     /* esito */
-    printf ("Giorno della settimana >> ");
-    switch (day = dayOfTheWeek (AA, MM, GG))
+    if (GG > 31 || GG < 1)
+        printf ("Data non valida");
+    else if (GG > 30 && (MM == 4 || MM == 6 || MM == 9 || MM == 11))
+        printf ("Data non valida");
+    else if (GG > 29 && MM == 2 && (AA % 4 == 0) && (AA % 100 != 0))
+        printf ("Data non valida");
+    else if (GG > 28 && MM == 2)
+        printf ("Data non valida");
+    else
     {
-        case (MON):
-            printf ("lunedi';");
-            break;
+        printf ("Giorno della settimana >> ");
+        switch (day = dayOfTheWeek (AA, MM, GG))
+        {
+            case (MON):
+                printf ("lunedi';");
+                break;
 
-        case (THU):
-            printf ("martedi';");
-            break;
+            case (THU):
+                printf ("martedi';");
+                break;
 
-        case (WED):
-            printf ("mercoledi';");
-            break;
+            case (WED):
+                printf ("mercoledi';");
+                break;
 
-        case (THR):
-            printf ("giovedi';");
-            break;
+            case (THR):
+                printf ("giovedi';");
+                break;
 
-        case (FRI):
-            printf ("venerdi';");
-            break;
+            case (FRI):
+                printf ("venerdi';");
+                break;
 
-        case (SAT):
-            printf ("sabato;");
-            break;
+            case (SAT):
+                printf ("sabato;");
+                break;
 
-        case (SUN):
-            printf ("domenica';");
-            break;
+            case (SUN):
+                printf ("domenica';");
+                break;
 
-        default:
-            break;
+            default:
+                break;
+        }
+
     }
 
 

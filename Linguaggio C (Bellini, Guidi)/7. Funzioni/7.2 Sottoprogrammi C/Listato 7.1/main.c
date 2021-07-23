@@ -2,7 +2,7 @@
 
 #include <stdio.h>
 
-double bubo (float);
+double cubo (float);
 
 int main (int argc, char const *argv[])
 {

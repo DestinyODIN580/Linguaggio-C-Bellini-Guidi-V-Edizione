@@ -4,8 +4,8 @@
 #include <stdio.h>
 
 #define MAX_ELE 1000        /* massimo numero di elementi */
-int vet[MAX_ELE];           /* array che ospita la sequenza */
 
+int vet[MAX_ELE];           /* array che ospita la sequenza */
 
 void gestione_sequenza (void);
 void visualizzazione (int);
@@ -16,7 +16,7 @@ int ricerca(int, int);
 int ric_bin(int, int);
 
 
-int main(int argc, char const *argv[])
+int main (int argc, char const *argv[])
 {
 
     gestione_sequenza ();
@@ -38,20 +38,20 @@ void gestione_sequenza (void)
 
     while (scelta != 0)
     {
-        printf("\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n");
-        printf("\t\t\t GESTIONE SEQUENZA");
-        printf("\n\n\n\t\t\t 1. Immissione");
-        printf("\n\n\t\t\t 2. Ordinamento");
-        printf("\n\n\t\t\t 3. Ricerca completa");
-        printf("\n\n\t\t\t 4. Ricerca binaria");
-        printf("\n\n\t\t\t 5. Visualizzazione");
-        printf("\n\n\t\t\t 0. fine");
-        printf("\n\n\n\t\t\t\t Scegliere una opzione: ");
-        scanf("%d", &scelta);
-        scanf("%c", &invio);
-        printf("\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n");
+        printf ("\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n");
+        printf ("\t\t\t GESTIONE SEQUENZA");
+        printf ("\n\n\n\t\t\t 1. Immissione");
+        printf ("\n\n\t\t\t 2. Ordinamento");
+        printf ("\n\n\t\t\t 3. Ricerca completa");
+        printf ("\n\n\t\t\t 4. Ricerca binaria");
+        printf ("\n\n\t\t\t 5. Visualizzazione");
+        printf ("\n\n\t\t\t 0. fine");
+        printf ("\n\n\n\t\t\t\t Scegliere una opzione: ");
+        scanf ("%d", &scelta);
+        scanf ("%c", &invio);
+        printf ("\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n");
 
-        switch(scelta)
+        switch (scelta)
         {
             case (1):
                 n = immissione ();
@@ -117,14 +117,14 @@ int immissione ()
 
     for (i = 0; i < n; i++)
     {
-        printf("\nImmettere un intero n.%d: ", i);
-        scanf("%d", &vet[i]);
+        printf ("\nImmettere un intero n.%d: ", i);
+        scanf ("%d", &vet[i]);
     }
 
     return (n);
 }
 
-void ordinamento( int n )
+void ordinamento (int n)
 {
     int i, p, k, n1;
     int aux;
