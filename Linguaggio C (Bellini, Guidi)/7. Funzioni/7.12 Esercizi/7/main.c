@@ -1,213 +1,108 @@
 /* 83.
     Progettare e realizzare una funzione che accetti in ingresso una data e restituisca in uscita il corrispondente giorno
-    della settimana. La funzione deve effettuare anche i controlli di validità della data immessa.  
+    della settimana. La funzione deve effettuare anche i controlli di validità della data immessa.
+*/
+
+// Formula >> N + int (N - 1) : 4 - int (N - 1) : 100 + int (N - 1) : 400 + t
+
 
 #include <stdio.h>
-#include <stdlib.h>
 
-#define JAN 0
-#define FEB 3
-#define MAR 3
-#define APR 6
-#define MAY 1
-#define JUN 4
-#define JUL 6
-#define AUG 2
-#define SEP 5
-#define OCT 0
-#define NOV 3
-#define DEC 5
+#define SAT 0
+#define SUN 1
+#define MON 2
+#define THU 3
+#define WED 4
+#define THR 5
+#define FRI 6
 
-#define CEN1 0
-#define CEN2 5
-#define CEN3 3
-#define CEN4 1
+int dayOfTheWeek (int, int, int);   /* funzione per il calcolo del giorno data la data */
 
-
-int main(int argc, char const *argv[])
+int main (int argc, char const *argv[])
 {
-    char AA[4];
-    char year[2];
-    char year2[2];
+    int AA;                         /* anno */
+    int MM;                         /* mese */
+    int GG;                         /* giorno */
+    int day;                        /* nome giorno della data */
 
-    int AAlen;
-    int aaTwoDigits;
-    int aaTwoDigits1;
-    int aaTwoDigits2;
-    int aa;
-    int aa2;
-    int GG;
-    int MM;
-    int out;
-    int c;
-    int i;
+    
+    /* assegnazione AA */
+    printf ("Anno > ");
+    scanf ("%d", &AA);
 
-    out = i = 0;
-
-
-    printf ("Inserire l'anno > ");
-    while ((c = getchar ()) != '\n')
-        AA[i++] = c;
-    AA[i] = '\0';
-
-    year2[0] = AA[0];
-    year2[1] = AA[0];
-    year2[2] = '\0';
-
-    printf ("Inserire il mese > ");
+    /* assegnazione MM */
+    printf ("Mese > ");
     scanf ("%d", &MM);
 
-    printf ("Inserire il giorno > ");
+    /* assegnazione GG */
+    printf ("Giorno > ");
     scanf ("%d", &GG);
-printf ("%s\n\n", AA);
-    aa = atoi (AA);
-printf ("%s\n\n", AA);
-    /* valutazione se la data e' valida o meno 
-    if (GG > 31 || GG < 1)
-        out = 1;
 
-    else if (GG > 30 && (MM == 4 || MM == 6 || MM == 9 || MM == 11))
-        out = 1;
-
-    else if (GG > 29 && MM == 2 && (aa % 4 == 0) && (aa % 100 != 0))
-        out = 1;
-        
-    else if (GG > 28 && MM == 2)
-        out = 1;
-
-    if (!out)
+    /* esito */
+    printf ("Giorno della settimana >> ");
+    switch (day = dayOfTheWeek (AA, MM, GG))
     {
-        switch (MM)
-        {
-            case (1):
-                GG += JAN;
-                break;
+        case (MON):
+            printf ("lunedi';");
+            break;
 
-            case (2):
-                GG += FEB;
-                break;
+        case (THU):
+            printf ("martedi';");
+            break;
 
-            case (3):
-                GG += MAR;
-                break;
+        case (WED):
+            printf ("mercoledi';");
+            break;
 
-            case (4):
-                GG += APR;
-                break;
+        case (THR):
+            printf ("giovedi';");
+            break;
 
-            case (5):
-                GG += MAY;
-                break;
-            
-            case (6):
-                GG += JUN;
-                break;
-            
-            case (7):
-                GG += JUL;
-                break;
+        case (FRI):
+            printf ("venerdi';");
+            break;
 
-            case (8):
-                GG += AUG;
-                break;
+        case (SAT):
+            printf ("sabato;");
+            break;
 
-            case (9):
-                GG += SEP;
-                break;
+        case (SUN):
+            printf ("domenica';");
+            break;
 
-            case (10):
-                GG += OCT;
-                break;
-
-            case (11):
-                GG += NOV;
-                break;
-            
-            case (12):
-                GG += DEC;
-                break;
-
-            default:
-                break;
-        }
-
-        if (GG > 7)
-            GG = GG % 7;
-
-        year[0] = AA[2];
-        year[1] = AA[3];
-        year[2] = '\0';
-
-        printf ("%s\n\n", AA);
-
-        printf (">> %s, %c %c : %s \n", year, AA[2], AA[3], AA);
-        printf (">> %d\n", aaTwoDigits = atoi (year));
-
-        if (aaTwoDigits >= 7)
-            aaTwoDigits1 = aaTwoDigits % 7;
-
-        if (aaTwoDigits >= 4)
-            aaTwoDigits2 = aaTwoDigits / 4;
-        else
-            aaTwoDigits2 = 0;
-
-        printf (">> %d\n", aaTwoDigits = aaTwoDigits1 + aaTwoDigits2);
-
-        year[0] = AA[0];
-        year[1] = AA[1];
-        year[2] = '\0';
-
-        printf (">> %s, %c %c\n", year, AA[0], AA[1]);
-        printf ("2 >> %d\n" , aa2 = atoi (year));
-
-        switch (aa2)
-        {
-            case (16):
-                aaTwoDigits += CEN1;
-                break;
-
-            case (17):
-                aaTwoDigits += CEN2;
-                break;
-
-            case (19):
-                aaTwoDigits += CEN3;
-                break;
-
-            case (20):
-                aaTwoDigits += CEN4;
-                break;
-
-            case (21):
-                aaTwoDigits += CEN1;
-                break;
-
-            default:
-                break;
-        }
-
-        ((aa % 4 == 0) && (aa % 100 != 0) && (MM == 1 || MM == 2)) ? (aaTwoDigits -= 1) : (0);
-
-    aaTwoDigits += GG;
-
-    if (aaTwoDigits >= 7)
-        aaTwoDigits = aaTwoDigits % 7;
-
-    printf (">> %d", aaTwoDigits);
-
+        default:
+            break;
     }
-        // printf ("La data e'valida, giorno della settimana");
-    else
-        printf ("La data non e'valida");
-
-
-
-
 
 
     printf ("\n");
     return 0;
 }
 
-*/
+int dayOfTheWeek (int AA, int MM, int GG)
+{
+    int day;                        /* giorno della settimana */           
+    int t;                          /* giorni passati dell'anno da 1/1/AA */
+    int i;                          /* contatore */
 
+
+    /* calcolo di t */
+    for (t = 0, i = 1; i < MM; i++)
+    {
+        if (AA % 4 == 0 && AA % 100 != 0 && i == 2)
+            t += 29;
+        else if (i == 2)
+            t += 28;
+        else if (i == 4 || i == 6 || i == 9 || i == 11)
+            t += 30;
+        else
+            t += 31;
+    }
+    t += GG;
+
+    /* calcolo di day */
+    day = (AA + ((AA - 1) / 4) - ((AA - 1) / 100) + ((AA - 1) / 400) + t) % 7;
+    
+    return day;
+}
+// Marco Fiorillo 23/07/2021
