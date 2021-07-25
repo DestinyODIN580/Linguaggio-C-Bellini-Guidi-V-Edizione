@@ -65,4 +65,7 @@ Soluzione agli esercizi e riassunto del libro
  7.12 Esercizi (7/15) --> 7.12 Esercizi (12/15)
 
 [24/07/2021]
- 7.12 Esercizi (13/15) --> 
+ 7.12 Esercizi (13/15) --> 9.8 Esercizi (2/6)
+
+[25/07/2021]
+ 9.8 Esercizi (3/6) --> 
