@@ -68,4 +68,7 @@ Soluzione agli esercizi e riassunto del libro
  7.12 Esercizi (13/15) --> 9.8 Esercizi (2/6)
 
 [25/07/2021]
- 9.8 Esercizi (3/6) --> 
+ 9.8 Esercizi (3/6) --> 9.8 Esercizi (6/6)
+
+[26/07/2021]
+ 10.1 Iterazione e ricorsione --> 
