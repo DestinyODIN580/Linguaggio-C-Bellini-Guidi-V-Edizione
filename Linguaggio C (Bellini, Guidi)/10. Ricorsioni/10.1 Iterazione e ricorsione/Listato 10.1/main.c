@@ -4,9 +4,9 @@
 
 #include <stdio.h>
 
-fat (int);
+int fat (int);
 
-int main(int argc, char const *argv[])
+int main (int argc, char const *argv[])
 {
     int n;
 
@@ -21,7 +21,7 @@ int main(int argc, char const *argv[])
     return 0;
 }
 
-fat (int n)
+int fat (int n)
 {
     if (!n)
         return 1;
