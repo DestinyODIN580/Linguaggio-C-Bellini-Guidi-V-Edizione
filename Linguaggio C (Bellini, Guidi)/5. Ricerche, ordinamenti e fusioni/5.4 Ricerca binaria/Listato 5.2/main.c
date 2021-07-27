@@ -56,7 +56,7 @@ int main (int argc, char const *argv[])
             if (vet[i] < ele)
                 alto = i + 1;
             else
-                basso = i + 1;
+                basso = i - 1;
     } while (alto <= basso && pos == -1);
 
     if (pos != -1)

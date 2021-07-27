@@ -1,10 +1,9 @@
-/* 109.
-    Scrivere una funzione ricorsiva che calcoli il massimo comune divisore di due numeri interi positivi utilizzando
-    l’algoritmo euclideo per cui:
+/* 110.
+    Scrivere una funzione ricorsiva che calcoli il massimo comune divisore di due numeri interi positivi ricordando che
 
-                    t               se k = 0
-        MCD(t,k) =  MCD (k, t)      se k > t
-                    MCD (k, t%k)    altrimenti
+                    MCD(t-k, k) se t > k
+        MCD(t,k) =  t           se t = k
+                    MCD(k, t)   se t < k
 */
 
 #include <stdio.h>
@@ -35,12 +34,14 @@ int main (int argc, char const *argv[])
 int MCD (int t, int k)
 {
 
+
     /* calcolo dell'MCD */
-    if (!k)
+    if (t == k)
         return t;
-    else if (k > t)
-        return MCD (k, t);
+    else if (t > k)
+        return MCD (t - k, k);
     else
-        return MCD (k, t % k);
+        return MCD (k, t);
+
 }
-// Marco Fiorillo 27/07/2021
+// Marco Fiorillo 28/07/2021
