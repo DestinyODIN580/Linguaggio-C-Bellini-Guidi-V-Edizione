@@ -74,4 +74,7 @@ Soluzione agli esercizi e riassunto del libro
  10.1 Iterazione e ricorsione --> 10.5 Ordinamento con quicksort
 
 [27/07/2021]
- 10.5 Ordinamento con quicksort -->  
+ 10.5 Ordinamento con quicksort --> 10.7 Esercizi (7/12)
+
+[28/07/2021]
+ 10.7 Esercizi (8/12) --> 
