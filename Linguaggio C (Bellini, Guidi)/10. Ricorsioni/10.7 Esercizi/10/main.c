@@ -1,4 +1,4 @@
-/* 112
+/* 112.
     Scrivere una versione ricorsiva della ricerca binaria su un vettore ordinato.
 */
 
