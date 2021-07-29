@@ -80,4 +80,7 @@ Soluzione agli esercizi e riassunto del libro
  10.7 Esercizi (8/12) --> 10.7 Esercizi (10/12)
 
 [29/07/2021]
- 10.7 Esercizi (11/12) --> 
+ 10.7 Esercizi (11/12) --> 11.8 Immissione ed emissione su stringa
+
+[30/07/2021]
+ 11.8 Immissione ed emissione su stringa --> 
