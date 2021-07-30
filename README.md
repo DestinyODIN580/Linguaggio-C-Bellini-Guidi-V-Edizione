@@ -83,4 +83,7 @@ Soluzione agli esercizi e riassunto del libro
  10.7 Esercizi (11/12) --> 11.8 Immissione ed emissione su stringa
 
 [30/07/2021]
- 11.8 Immissione ed emissione su stringa --> 
+ 11.8 Immissione ed emissione su stringa --> 12.8 Tipi derivati composti tramite funzione
+
+[31/07/2021]
+ 12.9 Tipi derivati composti tramite puntatore --> 
