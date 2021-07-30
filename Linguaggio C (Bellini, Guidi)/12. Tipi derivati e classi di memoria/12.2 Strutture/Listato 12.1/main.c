@@ -8,11 +8,11 @@ struct automobile
 {   
     int venduto;
 
-    char * marca;
-    char * modello;
+    char *marca;
+    char *modello;
 };
 
-int main(int argc, char const *argv[])
+int main (int argc, char const *argv[])
 {
     struct automobile a1;
     struct automobile a2;
