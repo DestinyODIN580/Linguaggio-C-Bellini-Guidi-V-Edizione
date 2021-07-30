@@ -1,8 +1,9 @@
 /* 117.
     Dato il seguente frammento di programma
-    unsigned char c;
-    c = '\166' & '\360';
-    printf("c: %o\n", c);
+    
+        unsigned char c;
+        c = '\166' & '\360';
+        printf("c: %o\n", c);
 
     che cosa visualizzerà la printf, e perché? E se al posto di '\166' avessimo scritto '\100' oppure '\0' oppure
     '\111' o '\110'?
