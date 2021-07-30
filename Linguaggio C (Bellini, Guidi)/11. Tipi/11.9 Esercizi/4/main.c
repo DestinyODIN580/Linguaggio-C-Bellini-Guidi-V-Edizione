@@ -24,17 +24,19 @@
 
 int main (int argc, char const *argv[])
 {
-    unsigned char c1 = '\111';  /* test 1 */
-    unsigned char c2 = '\360';
-    unsigned char c3 = c1 ^ c2;
+    unsigned char c1, c2, c3;  /* var. per test 1 */
+    unsigned char c4, c5, c6;  /* var. per test 2 */
+    unsigned char c7, c8, c9;  /* var. per test 3 */
 
-    unsigned char c4 = '\321';  /* test 2 */
-    unsigned char c5 = '\360';
-    unsigned char c6 = c4 ^ c5;
-
-    unsigned char c7 = '\350';  /* test 3 */
-    unsigned char c8 = '\360';
-    unsigned char c9 = c7 ^ c8;
+    c1 = '\111';
+    c2 = '\360';
+    c3 = c1 ^ c2;
+    c4 = '\321';
+    c5 = '\360';
+    c6 = c4 ^ c5;
+    c7 = '\350';
+    c8 = '\360';
+    c9 = c7 ^ c8;
 
 
     /* esito '\111' */

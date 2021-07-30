@@ -32,25 +32,27 @@
 
 int main (int argc, char const *argv[])
 {
-    unsigned char c1 = '\166';  /* test 1 */
-    unsigned char c2 = '\360';
-    unsigned char c3 = c1 & c2;
+    unsigned char c1, c2, c3;       /* var. per test 1 */
+    unsigned char c4, c5, c6;       /* var. per test 2 */
+    unsigned char c7, c8, c9;       /* var. per test 3 */
+    unsigned char c10, c11, c12;    /* var. per test 4 */
+    unsigned char c13, c14, c15;    /* var. per test 5 */
 
-    unsigned char c4 = '\100';  /* test 2 */
-    unsigned char c5 = '\360';
-    unsigned char c6 = c4 & c5;
-
-    unsigned char c7 = '\0';    /* test 3 */
-    unsigned char c8 = '\360';
-    unsigned char c9 = c7 & c8;
-
-    unsigned char c10 = '\111'; /* test 4 */
-    unsigned char c11 = '\360';
-    unsigned char c12 = c10 & c11;
-
-    unsigned char c13 = '\110'; /* test 5 */
-    unsigned char c14 = '\360';
-    unsigned char c15 = c13 & c14;
+    c1 = '\166';
+    c2 = '\360';
+    c3 = c1 & c2;
+    c4 = '\100';
+    c5 = '\360';
+    c6 = c4 & c5;
+    c7 = '\0';
+    c8 = '\360';
+    c9 = c7 & c8;
+    c10 = '\111';
+    c11 = '\360';
+    c12 = c10 & c11;
+    c13 = '\110';
+    c14 = '\360';
+    c15 = c13 & c14;
 
 
     /* esito '\166' */
