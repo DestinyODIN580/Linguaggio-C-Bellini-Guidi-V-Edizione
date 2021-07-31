@@ -86,4 +86,4 @@ Soluzione agli esercizi e riassunto del libro
  11.8 Immissione ed emissione su stringa --> 12.8 Tipi derivati composti tramite funzione
 
 [31/07/2021]
- 12.9 Tipi derivati composti tramite puntatore --> 
+ 12.8 Tipi derivati composti tramite funzione --> 
