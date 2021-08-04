@@ -95,4 +95,7 @@ Soluzione agli esercizi e riassunto del libro
  12.11 Esercizi (4/5) --> 12.11 Esercizi (4/5)
 
 [3/08/2021]
+ 12.11 Esercizi (4/5) --> 12.11 Esercizi (4/5)
+ 
+[4/08/2021]
  12.11 Esercizi (4/5) -->
