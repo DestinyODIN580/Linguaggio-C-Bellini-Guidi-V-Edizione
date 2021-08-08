@@ -110,4 +110,7 @@ Soluzione agli esercizi e riassunto del libro
  12.11 Esercizi (4/5) --> 12.11 Esercizi (4/5)
  
 [8/08/2021]
+ 12.11 Esercizi (4/5) --> 12.11 Esercizi (4/5)
+ 
+[9/08/2021]
  12.11 Esercizi (4/5) -->
