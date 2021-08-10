@@ -92,4 +92,31 @@ Soluzione agli esercizi e riassunto del libro
  12.11 Esercizi (2/5) --> 12.11 Esercizi (3/5) 
 
 [2/08/2021]
+ 12.11 Esercizi (4/5) --> 12.11 Esercizi (4/5)
+
+[3/08/2021]
+ 12.11 Esercizi (4/5) --> 12.11 Esercizi (4/5)
+ 
+[4/08/2021]
+ 12.11 Esercizi (4/5) --> 12.11 Esercizi (4/5)
+ 
+[5/08/2021]
+ 12.11 Esercizi (4/5) --> 12.11 Esercizi (4/5)
+ 
+[6/08/2021]
+ 12.11 Esercizi (4/5) --> 12.11 Esercizi (4/5)
+ 
+[7/08/2021]
+ 12.11 Esercizi (4/5) --> 12.11 Esercizi (4/5)
+ 
+[8/08/2021]
+ 12.11 Esercizi (4/5) --> 12.11 Esercizi (4/5)
+ 
+[9/08/2021]
+ 12.11 Esercizi (4/5) --> 12.11 Esercizi (4/5)
+ 
+[10/08/2021]
+ 12.11 Esercizi (4/5) --> 12.11 Esercizi (4/5)
+
+[11/08/2021]
  12.11 Esercizi (4/5) --> 
