@@ -122,4 +122,10 @@ Soluzione agli esercizi e riassunto del libro
  12.11 Esercizi (4/5) --> 13.2 Lettura e scrittura su file
 
 [12/08/2021]
+ 13.2 Lettura e scrittura su file --> 13.2 Lettura e scrittura su file
+
+[13/08/2021]
+ 13.2 Lettura e scrittura su file --> 13.2 Lettura e scrittura su file
+
+[14/08/2021]
  13.2 Lettura e scrittura su file -->
