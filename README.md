@@ -128,4 +128,8 @@ Soluzione agli esercizi e riassunto del libro
  13.2 Lettura e scrittura su file --> 13.2 Lettura e scrittura su file
 
 [14/08/2021]
- 13.2 Lettura e scrittura su file -->
+ 13.2 Lettura e scrittura su file --> 13.3 Posizionamento del puntatore
+
+[15/08/2021]
+ 13.3 Posizionamento del puntatore -->
+ 
