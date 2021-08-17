@@ -138,3 +138,6 @@ Soluzione agli esercizi e riassunto del libro
 
 [17/08/2021]
  13.3 Posizionamento del puntatore --> 13.3 Posizionamento del puntatore
+
+[18/08/2021]
+ 13.3 Posizionamento del puntatore --> 
