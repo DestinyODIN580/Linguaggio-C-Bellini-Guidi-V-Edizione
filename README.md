@@ -155,4 +155,7 @@ Soluzione agli esercizi e riassunto del libro
  13.3 Posizionamento del puntatore --> 13.3 Posizionamento del puntatore
  
 [23/08/2021]
+ 13.3 Posizionamento del puntatore --> 13.3 Posizionamento del puntatore
+
+[24/08/2021]
  13.3 Posizionamento del puntatore -->
