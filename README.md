@@ -179,4 +179,7 @@ Soluzione agli esercizi e riassunto del libro
  13.8 Embedded SQL --> 13.8 Embedded SQL
 
 [31/08/2021]
- 13.8 Embedded SQL -->
+ 13.8 Embedded SQL --> 13.9 Esercizi (1/17)
+
+[1/09/2021]
+ 13.9 Esercizi (2/17) --> 
