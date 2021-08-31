@@ -29,6 +29,10 @@ int main (int argc, char const argv *[])
 
     /* Chiude la connessione con il server SQL */
     exec sql disconnect;
+
+
+    printf ("\n");
+    return 0;
 }
 /* Sottoprogramma che gestisce gli errori SQL */
 err_p()
