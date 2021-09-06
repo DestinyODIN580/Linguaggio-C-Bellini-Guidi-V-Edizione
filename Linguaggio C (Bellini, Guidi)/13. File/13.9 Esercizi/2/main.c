@@ -14,19 +14,19 @@ int main (int argc, char const *argv[])
     int c;              /* carattere in ingresso */
     int i, j;           /* contatori */
 
-    FILE *fp;           /* file */
+    FILE *file;           /* file */
 
     i = 0;
 
     
     /* esito */
-    if ((fp = fopen ("file.txt", "a+")) != NULL)
+    if ((file = fopen ("file.txt", "a+")) != NULL)
     {
         while ((c = getchar ()) && i < CHARS)
             buffer[i++] = c;
         buffer[i] = '\0';
 
-        fprintf (fp, "%s", buffer);
+        fprintf (file, "%s", buffer);
     }
 
     /* chiusura del file */
