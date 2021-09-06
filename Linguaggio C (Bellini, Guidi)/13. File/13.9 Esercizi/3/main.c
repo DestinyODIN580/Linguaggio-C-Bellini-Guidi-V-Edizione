@@ -17,7 +17,6 @@ int main (int argc, char const *argv[])
     char name[LEN];
     char surname[LEN];
 
-
     int choise;
     int c;
     int i;
@@ -53,6 +52,7 @@ int main (int argc, char const *argv[])
 
     }
 
+    
 
     printf ("\n");
     return 0;

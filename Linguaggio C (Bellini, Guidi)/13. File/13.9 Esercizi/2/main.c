@@ -29,6 +29,8 @@ int main (int argc, char const *argv[])
         fprintf (fp, "%s", buffer);
     }
 
+    /* chiusura del file */
+    fclose (file);
 
     printf ("\n");
     return 0;
