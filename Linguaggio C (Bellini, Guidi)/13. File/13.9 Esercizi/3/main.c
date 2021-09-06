@@ -5,6 +5,7 @@
 
 #include <stdio.h>
 #include <stdlib.h>
+#include <string.h>
 
 #define LEN 100
 
@@ -47,12 +48,19 @@ int main (int argc, char const *argv[])
             case (2):
                 searchStudent ();
                 break;
+
+            case (3):
+                deleteStudent ();
+                break;
+            
+            default:
+                break;
         }
 
 
     }
 
-    
+
 
     printf ("\n");
     return 0;
@@ -97,6 +105,8 @@ void newStudent (void)
         buffer[i++] = c;
     buffer[i] = '\0';
     fprintf (fp, "%s\n", buffer);
+    fflush (fp);
+    fclose (fp);
 
     printf ("\n\tStudente inserito\n");
     printf ("# ------------------------------------------------------ #\n");
@@ -105,22 +115,27 @@ void newStudent (void)
 void searchStudent (void)
 {
     char name[LEN];
-    char fileName[LEN];
     char surname[LEN];
-    char fileSurname[LEN];
 
+    int out;
     int c;
     int i;
 
+    char *fileLine;
+
+    size_t lineLenght;
+
     FILE *fp;           /* puntatore al file */
 
-    i = 0;
+    i = out = 0;
 
-    fp = fopen ("studenti.txt", "a+");
+    fileLine = NULL;
+
+    fp = fopen ("studenti.txt", "r");
 
 
     getchar ();
-    printf ("Inserire nome > ");
+    printf ("\n\nInserire nome > ");
     while ((c = getchar ()) != '\n')
         name[i++] = c;
     name[i] = '\0';
@@ -132,24 +147,67 @@ void searchStudent (void)
         surname[i++] = c;
     surname[i] = '\0';
 
-    fseek (fp, 0L, SEEK_SET);
-
-    fscanf (fp, "%s %s %s\n", fileName, fileSurname, )
-
-        printf ("%s", fileName);
+    while (getline (&fileLine, &lineLenght, fp) != -1)
+        if (strstr (fileLine, name))
+            if (strstr (fileLine, surname))
+                {
+                    printf ("\n>> Alunno presente");
+                    out = 1;
+                    break;
+                }
     
+    if (!out)
+        printf ("\n>> Alunno non trovato");
+    printf ("\n# ------------------------------------------------------ #\n");
 
 
-
+    fclose (fp);
 }
 
+void deleteStudent (void)
+{
+    char name[LEN];
+    char surname[LEN];
+
+    int out;
+    int c;
+    int i;
+
+    char *fileLine;
+
+    size_t lineLenght;
+
+    FILE *fp;           /* puntatore al file */
+
+    i = out = 0;
+
+    fileLine = NULL;
+
+    fp = fopen ("studenti.txt", "a+");
 
 
+    getchar ();
+    printf ("\n\nInserire nome > ");
+    while ((c = getchar ()) != '\n')
+        name[i++] = c;
+    name[i] = '\0';
+            
+    /* inserimento del cognome */            
+    i = 0;
+    printf ("Inserire cognome > ");
+    while ((c = getchar ()) != '\n')
+        surname[i++] = c;
+    surname[i] = '\0';
+
+    
+    
+    
+    
+    
+    printf ("\n>> Alunno non trovato");
+    printf ("\n# ------------------------------------------------------ #\n");
 
 
-
-
-
-
-
+    fclose (fp);
+}
 // 
