@@ -9,205 +9,159 @@
 
 #define LEN 100
 
-void newStudent (void);
-void searchStudent (void);
-void deleteStudent (void);
+void newPerson (void); 
+void searchPerson (void);
+void deletePerson (void);
 
-int main (int argc, char const *argv[])
-{   
+struct struct_person
+{
     char name[LEN];
     char surname[LEN];
+    char birth_date[LEN];
 
+} person;
+
+FILE *fp;
+
+int main (int argc, char const *argv[])
+{
     int choise;
-    int c;
-    int i;
 
     choise = 1;
 
-    while (choise)
+
+    while (choise - '0')
     {
-        printf ("\n\t\tMENU\n\n");
-        printf ("\t0. Uscire\n");
-        printf ("\t1. Nuovo studente\n");
-        printf ("\t2. Ricerca studente\n");
-        printf ("\t3. Cancellazione studente\n");
-        printf ("\n\tOpzione (0-3) > ");
-        scanf ("%d", &choise);
+        printf ("\t\tMENU\n\n");
+        printf ("0. Uscita dal programma\n");
+        printf ("1. Inserimento studente\n");
+        printf ("2. Ricerca studente\n");
+        printf ("3. Eliminazione studente\n");
+        printf ("\n> ");
 
-        switch (choise)
+        switch (choise = getchar ())
         {
-            case (0):
-                printf ("\nProgramma terminato");
-                exit (0);
-                break;
-            
-            case (1):
-                newStudent ();
-                break;
-            
-            case (2):
-                searchStudent ();
+            case '0':
+                printf ("Programma terminato\n");
                 break;
 
-            case (3):
-                deleteStudent ();
+            case '1':
+                printf ("Inserimento studente...\n");
+                newPerson ();
+                break;
+            
+            case '2':
+                printf ("Ricerca studente...\n");
+                searchPerson ();
+                break;
+
+            case '3':
+                printf ("Cancellazione studente...\n");
+                deletePerson ();
                 break;
             
             default:
                 break;
-        }
-
-
-    }
-
+        }   
+    
+    }     
 
 
     printf ("\n");
     return 0;
 }
 
-void newStudent (void)
-{   
-    char buffer[LEN];   /* buffer */
-        
-    int c;              /* carattere in ingresso */
-    int i;              /* contatore */
-
-    FILE *fp;           /* puntatore al file */
+void newPerson ()
+{
+    int c;
+    int i;
 
     i = 0;
 
-    fp = fopen ("studenti.txt", "a+");
+    fp = fopen ("anag.txt", "a+");
 
 
-    /* inserimento del nome */
-    printf ("\n\n# ------------------------------------------------------ #\n");
-    printf ("\tCreazione di un nuovo studente nell'archivio\n\n");
     getchar ();
-    printf ("Inserire nome > ");
+    printf ("Inserire il nome > ");
     while ((c = getchar ()) != '\n')
-        buffer[i++] = c;
-    buffer[i] = '\0';
-    fprintf (fp, "%s ", buffer);
-            
-    /* inserimento del cognome */            
-    i = 0;
-    printf ("Inserire cognome > ");
-    while ((c = getchar ()) != '\n')
-        buffer[i++] = c;
-    buffer[i] = '\0';
-    fprintf (fp, "%s ", buffer);
+        person.name[i++] = c;
+    person.name[i] = '\0';
 
-    /* inserimento della data di nascita */
+    printf ("Inserire il cognome > ");
     i = 0;
-    printf ("Inserire data di nascita > ");
     while ((c = getchar ()) != '\n')
-        buffer[i++] = c;
-    buffer[i] = '\0';
-    fprintf (fp, "%s\n", buffer);
+        person.surname[i++] = c;
+    person.surname[i] = '\0';
+
+    printf ("Inserire la data di nascita > ");
+    i = 0;
+    while ((c = getchar ()) != '\n')
+        person.birth_date[i++] = c;
+    person.birth_date[i] = '\0';
+
+    fprintf (fp, "%s %s %s\n", person.name, person.surname, person.birth_date);
     fflush (fp);
     fclose (fp);
 
-    printf ("\n\tStudente inserito\n");
-    printf ("# ------------------------------------------------------ #\n");
+
+    return ;
 }
 
-void searchStudent (void)
-{
+void searchPerson ()
+{   
     char name[LEN];
+    char fname[LEN];
     char surname[LEN];
+    char fsurname[LEN];
+    char birth_date[LEN];
+    char fbirth_date[LEN];
 
     int out;
     int c;
     int i;
 
-    char *fileLine;
+    out = i = 0;
 
-    size_t lineLenght;
-
-    FILE *fp;           /* puntatore al file */
-
-    i = out = 0;
-
-    fileLine = NULL;
-
-    fp = fopen ("studenti.txt", "r");
-
-
+    fp = fopen ("anag.txt", "a+");
+    
+    
     getchar ();
-    printf ("\n\nInserire nome > ");
+    printf ("Inserire nome > ");
     while ((c = getchar ()) != '\n')
         name[i++] = c;
     name[i] = '\0';
-            
-    /* inserimento del cognome */            
-    i = 0;
+
+
     printf ("Inserire cognome > ");
+    i = 0;  
     while ((c = getchar ()) != '\n')
         surname[i++] = c;
     surname[i] = '\0';
 
-    while (getline (&fileLine, &lineLenght, fp) != -1)
-        if (strstr (fileLine, name))
-            if (strstr (fileLine, surname))
-                {
-                    printf ("\n>> Alunno presente");
-                    out = 1;
-                    break;
-                }
+    rewind (fp);
+
     
+    for (i = 0; !feof (fp); i++)
+    {
+        fscanf (fp, "%s %s %s\n", fname, fsurname, fbirth_date);
+
+        if (!strcmp (fname, name))
+            if (!strcmp (fsurname, surname))
+            {
+                printf ("Studente trovato alla riga %d\n", i);
+                out = 1;
+                break;
+            }
+    }
+
     if (!out)
-        printf ("\n>> Alunno non trovato");
-    printf ("\n# ------------------------------------------------------ #\n");
+        printf ("Studente non trovato\n");
 
-
-    fclose (fp);
+    return ;
 }
 
-void deleteStudent (void)
+void deletePerson ()
 {
-    char name[LEN];
-    char surname[LEN];
-
-    int out;
-    int c;
-    int i;
-
-    char *fileLine;
-
-    size_t lineLenght;
-
-    FILE *fp;           /* puntatore al file */
-
-    i = out = 0;
-
-    fileLine = NULL;
-
-    fp = fopen ("studenti.txt", "a+");
-
-
-    getchar ();
-    printf ("\n\nInserire nome > ");
-    while ((c = getchar ()) != '\n')
-        name[i++] = c;
-    name[i] = '\0';
-            
-    /* inserimento del cognome */            
-    i = 0;
-    printf ("Inserire cognome > ");
-    while ((c = getchar ()) != '\n')
-        surname[i++] = c;
-    surname[i] = '\0';
-
     
-    
-    
-    
-    
-    printf ("\n>> Alunno non trovato");
-    printf ("\n# ------------------------------------------------------ #\n");
-
-
-    fclose (fp);
 }
-// 
+//
