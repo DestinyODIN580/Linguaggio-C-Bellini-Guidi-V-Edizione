@@ -32,6 +32,9 @@ int main (int argc, char const *argv[])
     /* esito */
     printf ("2 >> %s\n", buffer);
 
+    /* chiusura del file */
+    fclose (fp);
+
 
     printf ("\n");
     return 0;
