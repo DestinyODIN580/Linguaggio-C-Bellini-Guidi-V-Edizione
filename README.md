@@ -233,4 +233,10 @@ Soluzione agli esercizi e riassunto del libro
  13.9 Esercizi (6/17) --> 13.9 Esercizi (6/17)
 
 [18/09/2021]
- 13.9 Esercizi (6/17) -->
+ 13.9 Esercizi (6/17) --> 13.9 Esercizi (6/17) 
+
+[19/09/2021]
+ 13.9 Esercizi (6/17) --> 13.9 Esercizi (6/17) 
+
+[20/09/2021]
+ 13.9 Esercizi (6/17) --> 
