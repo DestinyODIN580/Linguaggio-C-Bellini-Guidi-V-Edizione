@@ -11,26 +11,29 @@
 
 #define LEN 100
 
-void new (int *, char[][LEN]);
-void edit (int *, char[][LEN]);
+void new (int *, char[][LEN]);      /* funzione che immette un nuovo contatto */
+void edit (int *, char[][LEN]);     /* funzione che modifica un contatto */
+void delete (int *, char[][LEN]);   /* funzione che elimina un contatto */
+void display (int *, char[][LEN]);  /* funzione che mostra la rubrica */
 
-FILE *fp;
+FILE *fp;                           /* puntatore al file "rubrica.txt" */
 
 int main (int argc, char const *argv[])
 {
-    char mat[LEN][LEN];
-    char choise;
+    char mat[LEN][LEN];             /* matrice della rubrica */
+    char choise;                    /* scelta */
 
-    int lastIndex;
-    int c;
-    int i, j;
+    int lastIndex;                  /* indice in modifica della matrice */
+    int c;                          /* carattere in ingresso */
+    int i, j;                       /* contatori */
 
+    i = j = 0;
     choise = 0;
     mat[0][0] = '0';
     fp = fopen ("rubrica.txt", "a+");
 
 
-    i = j = 0;
+    /* importazione del file nella matrice */
     rewind (fp);
     while (!feof (fp))
     {
@@ -44,13 +47,15 @@ int main (int argc, char const *argv[])
         else
             mat[i][j++] = c;
     }
-
     lastIndex = i - 1;
     printf (">> Importazione dati completata\n");
     fclose (fp);
+
+    /* reset del file */
     fp = fopen ("rubrica.txt", "w");
     fclose (fp);
     
+    /* esito */
     while (!choise)
     {
         printf ("\n\tMENU\n\n");
@@ -78,6 +83,19 @@ int main (int argc, char const *argv[])
             case '2':
                 printf ("Modifica contatto...\n");
                 edit (&lastIndex, mat);
+                choise = 0;
+                break;
+
+            case '3':
+                printf ("Elimazione contatto...\n");
+                delete (&lastIndex, mat);
+                choise = 0;
+                break;
+
+            case '4':
+                printf ("Visualizzazione rubrica...\n");
+                display (&lastIndex, mat);
+                choise = 0;
                 break;
 
             default:
@@ -92,12 +110,12 @@ int main (int argc, char const *argv[])
 
 void new (int *lastIndex, char mat[][LEN])
 {
-    char name[LEN];
-    char surname[LEN];
-    char number[LEN];
+    char name[LEN];     /* nome del nuovo contatto */
+    char surname[LEN];  /* cognome del nuovo contatto */
+    char number[LEN];   /* numero del nuovo contatto */
 
-    int c;
-    int i, j, x;
+    int c;              /* carattere in ingresso */
+    int i, j, x;        /* contatori */
 
     x = 0;
 
@@ -106,35 +124,44 @@ void new (int *lastIndex, char mat[][LEN])
     fp = fopen ("rubrica.txt", "w");
 
 
-
+    /* costruzione di name */
     printf ("Inserire il nome > ");
     while ((c = getchar ()) != '\n')
         name[x++] = c;
     name[x] = '\0';
+
+    /* importazione in mat di name */
     for (j = 0; j < strlen (name); j++)
         mat[*lastIndex][j] = name[j];
     mat[*lastIndex][j++] = ' ';
 
+    /* costruzione di surname */
     printf ("Inserire il cognome > ");
     x = 0;
     while ((c = getchar ()) != '\n')
         surname[x++] = c;
     surname[x] = '\0';
+
+    /* importazione in mat di surname */
     for (i = 0; i < strlen (surname); i++)
         mat[*lastIndex][i + j] = surname[i];
     mat[*lastIndex][i + j] = ' ';
     j += i + 1;
 
+    /* costruzione di number */
     printf ("Inserire il numero > ");
     x = 0;
     while ((c = getchar ()) != '\n')
         number[x++] = c;
     number[x] = '\0';
+
+    /* importazione in mat di number */
     for (i = 0; i < strlen (number); i++)
         mat[*lastIndex][i + j] = number[i]; 
     // mat[*lastIndex][i + j++] = '\n';
     mat[*lastIndex][i + j] = '\0';
 
+    /* update del file */
     for (i = 0; i < *lastIndex + 1; i++)
     {
         for (j = 0; mat[i][j] != '\0'; j++)
@@ -150,28 +177,15 @@ void new (int *lastIndex, char mat[][LEN])
 
 void edit (int *lastIndex, char mat[][LEN])
 {
-    char name[LEN];
-    char matName[LEN];
-    char surname[LEN];
-    char matSurname[LEN];
+    char newLine[LEN];      /* nuova riga */
 
-    int c;
-    int i, j, k;
+    int row;                /* riga da modificare */
+    int c;                  /* carattere in ingresso */
+    int i, j;               /* contatori */
 
-    i = 0;
 
-    printf ("Inserire il nome > ");
-    while ((c = getchar ()) != '\n')
-        name[i++] = c;
-    name[i] = '\0';
-
-    printf ("Inserire il cognome > ");
-    i = 0;
-    while ((c = getchar ()) != '\n')
-        surname[i++] = c;
-    surname[i] = '\0';
-
-    printf ("\n");
+    /* display dell'elenco */
+    printf ("\nElenco telefonico:\n");
     for (i = 0; i < *lastIndex + 1; i++)
     {
         printf ("%d) > ", i);
@@ -179,10 +193,110 @@ void edit (int *lastIndex, char mat[][LEN])
             printf ("%c", mat[i][j]);
         printf ("\n");
     }
-
+    printf ("\n\n");
     // todo: scelta della riga da modificare
+    row = *lastIndex + 1;
+    while (row > *lastIndex)
+    {
+        printf ("Riga da modificare > ");
+        scanf ("%d", &row);
+    }
+    getchar ();
+
+    printf ("> ");
+    i = 0;
+    while ((c = getchar ()) != '\n')
+        newLine[i++] = c;
+    newLine[i] = '\0';
+
+    for (i = 0; i < strlen (newLine); i++)
+        mat[row][i] = newLine[i];
+    mat[row][i] = '\0';
+
+    fopen ("rubrica.txt", "w");
+    for (i = 0; i < *lastIndex + 1; i++)
+    {
+        for (j = 0; mat[i][j] != '\0'; j++)
+            fprintf (fp, "%c", mat[i][j]);
+        fprintf (fp, "\n");
+    }
+    fflush (fp);
+    fclose (fp);
 
 
+    return ;
 }
 
+void delete (int *lastIndex, char mat[][LEN])
+{
+    char newLine[LEN];
 
+    int row;
+    int c;
+    int i, j;
+
+
+    /* display dell'elenco */
+    printf ("\nElenco telefonico:\n");
+    for (i = 0; i < *lastIndex + 1; i++)
+    {
+        printf ("%d) > ", i);
+        for (j = 0; mat[i][j] != '\0'; j++)
+            printf ("%c", mat[i][j]);
+        printf ("\n");
+    }
+    printf ("\n\n");
+    
+    /* scelta della riga da modificare e assegnazione di row */
+    row = *lastIndex + 1;
+    while (row > *lastIndex)
+    {
+        printf ("Riga da eliminare > ");
+        scanf ("%d", &row);
+    }
+    getchar ();
+
+    /* shift delle righe */
+    for (j = row + 1; j <= *lastIndex; j++)
+    {
+        for (i = 0; mat[j][i] != '\0'; i++)
+            mat[j - 1][i] = mat[j][i];
+        mat[j - 1][i] = '\0';
+    }
+    *lastIndex -= 1;
+
+    /* update del file */
+    fopen ("rubrica.txt", "w");
+    for (i = 0; i < *lastIndex + 1; i++)
+    {
+        for (j = 0; mat[i][j] != '\0'; j++)
+            fprintf (fp, "%c", mat[i][j]);
+        fprintf (fp, "\n");
+    }
+    fflush (fp);
+    fclose (fp);
+
+
+    return ;    
+}
+
+void display (int *lastIndex, char mat[][LEN])
+{
+    int i, j;
+
+
+    /* display della rubrica */
+    printf ("\nElenco telefonico:\n");
+    for (i = 0; i < *lastIndex + 1; i++)
+    {
+        printf ("%d) > ", i);
+        for (j = 0; mat[i][j] != '\0'; j++)
+            printf ("%c", mat[i][j]);
+        printf ("\n");
+    }
+    printf ("\n\n");
+
+
+    return ;
+}
+// Marco Fiorillo 21/09/2021
