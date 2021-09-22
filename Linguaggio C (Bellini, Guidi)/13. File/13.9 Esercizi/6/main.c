@@ -15,6 +15,7 @@ void new (int *, char[][LEN]);      /* funzione che immette un nuovo contatto */
 void edit (int *, char[][LEN]);     /* funzione che modifica un contatto */
 void delete (int *, char[][LEN]);   /* funzione che elimina un contatto */
 void display (int *, char[][LEN]);  /* funzione che mostra la rubrica */
+void search (int *, char[][LEN]);   /* funzione che restituisce il numero dato un nome */
 
 FILE *fp;                           /* puntatore al file "rubrica.txt" */
 
@@ -64,6 +65,7 @@ int main (int argc, char const *argv[])
         printf ("2. Modifica contatto\n");
         printf ("3. Cancellazione contatto\n");
         printf ("4. Visualizzazione rubrica\n");
+        printf ("5. Visualizzazione numero per nome\n");
         printf ("> ");
         choise = getchar ();
         getchar ();
@@ -95,6 +97,12 @@ int main (int argc, char const *argv[])
             case '4':
                 printf ("Visualizzazione rubrica...\n");
                 display (&lastIndex, mat);
+                choise = 0;
+                break;
+
+            case '5':
+                printf ("Visualizzazione numero...\n");
+                search (&lastIndex, mat);
                 choise = 0;
                 break;
 
@@ -293,6 +301,45 @@ void display (int *lastIndex, char mat[][LEN])
         for (j = 0; mat[i][j] != '\0'; j++)
             printf ("%c", mat[i][j]);
         printf ("\n");
+    }
+    printf ("\n\n");
+
+
+    return ;
+}
+
+void search (int *lastIndex, char mat[][LEN])
+{
+    char name[LEN];     /* nome da cercare */
+
+    int c;              /* carattere in ingresso */
+    int i, j;           /* contatori */
+
+    i = j = 0;
+
+
+    /* costruzione di name */
+    printf ("Inserire il nome di cui trovare il numero > ");
+    while ((c = getchar ()) != '\n')
+        name[i++] = c;
+    name[i] = '\0';
+
+    /* ricerca di name e display del numero associato */
+    for (i = 0; i <= *lastIndex; i++)
+    {
+        for (j = 0; mat[i][j] != ' '; j++)
+            if (name[j] != mat[i][j])
+                break;
+
+        if (j == strlen (name))
+        {
+            for (; mat[i][j] < '0' || mat[i][j] > '9'; j++);
+
+            printf ("\nNumero di %s >> ", name);
+            for (j-- ; mat[i][j] != '\0'; j++)
+                printf ("%c", mat[i][j]);
+
+        }
     }
     printf ("\n\n");
 
