@@ -27,6 +27,7 @@ void search (int *lastIndex, char mat[][LEN])
             if (name[j] != mat[i][j])
                 break;
 
+        /* esito */
         if (j == strlen (name))
         {
             for (; mat[i][j] < '0' || mat[i][j] > '9'; j++);

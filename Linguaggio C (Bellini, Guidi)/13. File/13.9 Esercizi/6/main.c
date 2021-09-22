@@ -335,6 +335,7 @@ void search (int *lastIndex, char mat[][LEN])
         {
             for (; mat[i][j] < '0' || mat[i][j] > '9'; j++);
 
+            /* esito */
             printf ("\nNumero di %s >> ", name);
             for (j-- ; mat[i][j] != '\0'; j++)
                 printf ("%c", mat[i][j]);
