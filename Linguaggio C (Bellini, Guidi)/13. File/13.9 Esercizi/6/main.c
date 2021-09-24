@@ -16,7 +16,8 @@ void edit (int *, char[][LEN]);     /* funzione che modifica un contatto */
 void delete (int *, char[][LEN]);   /* funzione che elimina un contatto */
 void display (int *, char[][LEN]);  /* funzione che mostra la rubrica */
 void search (int *, char[][LEN]);   /* funzione che restituisce il numero dato un nome */
-void sort (int *, char[][LEN]);
+void sort (int *, char[][LEN]);     /* funzione che ordina la rubrica secondo i nomi in ordine alfabetico crescente in ASCII */
+void binary (int *, char[][LEN]);   /* funzione che tramite un algoritmo di ricerca binaria trova la posizione di un nome */
 
 FILE *fp;                           /* puntatore al file "rubrica.txt" */
 
@@ -67,6 +68,8 @@ int main (int argc, char const *argv[])
         printf ("3. Cancellazione contatto\n");
         printf ("4. Visualizzazione rubrica\n");
         printf ("5. Visualizzazione numero per nome\n");
+        printf ("6. Sorting della rubrica per nome\n");
+        printf ("7. Ricerca binaria di un nome su rubrica ordinata\n");
         printf ("> ");
         choise = getchar ();
         getchar ();
@@ -110,6 +113,12 @@ int main (int argc, char const *argv[])
             case '6':
                 printf ("Sorting...\n");
                 sort (&lastIndex, mat);
+                choise = 0;
+                break;
+
+            case '7':
+                printf ("Ricerca binaria...\n");
+                binary (&lastIndex, mat);
                 choise = 0;
                 break;
 
@@ -395,5 +404,57 @@ void sort (int *lastIndex, char mat[][LEN])
                 mat[j][k] = '\0';
             }
         }
+}
+
+void binary (int *lastIndex, char mat[][LEN])
+{
+    char name[LEN];         /* nome da trovare */
+    char fileName[LEN];     /* nome corrente nella rubrica */
+
+    int result;             /* risultato della funzioen strcmp */
+    int pos;                /* riga della rubrica con il nome cercato */
+    int bottom;             /* var. per la ricerca binaria */
+    int top;                /* var. per la ricerca binaria */
+    int c;                  /* carattere in ingresso */
+    int i, j;               /* contatori */
+
+    pos = -1;
+    i = 0;
+
+
+    /* costruzione di name */
+    printf ("Inserire il nome da cercare > ");
+    while ((c = getchar ()) != '\n')
+        name[i++] = c;
+    name[i] = '\0';
+
+    /* ricerca binaria */
+    for (bottom = 0, top = *lastIndex; bottom <= top && pos == -1; )
+    {
+        /* spartizione */
+        i = (bottom + top) / 2;
+
+        /* costruzione di filename */
+        for (j = 0; mat[i][j] != ' '; j++)
+            fileName[j] = mat[i][j];
+        fileName[j] = '\0';
+
+        /* controllo della validita'del nome */
+        if (!(result = strcmp (name, fileName)))
+            pos = i;
+        else if (result > 0)
+            bottom = i + 1;
+        else
+            top = i - 1;  
+    }  
+
+    /* esito */
+    if (pos == -1)
+        printf ("Elemento non trovato\n");
+    else
+        printf ("Nome trovato a riga [%d]\n", pos);
+
+
+    return ;
 }
 // Marco Fiorillo 21/09/2021
