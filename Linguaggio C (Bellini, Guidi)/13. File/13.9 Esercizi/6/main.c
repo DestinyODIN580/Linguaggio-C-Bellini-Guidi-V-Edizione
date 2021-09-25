@@ -11,13 +11,14 @@
 
 #define LEN 100
 
-void new (int *, char[][LEN]);      /* funzione che immette un nuovo contatto */
-void edit (int *, char[][LEN]);     /* funzione che modifica un contatto */
-void delete (int *, char[][LEN]);   /* funzione che elimina un contatto */
-void display (int *, char[][LEN]);  /* funzione che mostra la rubrica */
-void search (int *, char[][LEN]);   /* funzione che restituisce il numero dato un nome */
-void sort (int *, char[][LEN]);     /* funzione che ordina la rubrica secondo i nomi in ordine alfabetico crescente in ASCII */
-void binary (int *, char[][LEN]);   /* funzione che tramite un algoritmo di ricerca binaria trova la posizione di un nome */
+void new (int *, char[][LEN]);          /* funzione che immette un nuovo contatto */
+void edit (int *, char[][LEN]);         /* funzione che modifica un contatto */
+void delete (int *, char[][LEN]);       /* funzione che elimina un contatto */
+void display (int *, char[][LEN]);      /* funzione che mostra la rubrica */
+void search (int *, char[][LEN]);       /* funzione che restituisce il numero dato un nome */
+void sort (int *, char[][LEN]);         /* funzione che ordina la rubrica secondo i nomi in ordine alfabetico crescente in ASCII */
+void binary (int *, char[][LEN]);       /* funzione che tramite un algoritmo di ricerca binaria trova la posizione di un nome */
+void letterSearch (int *, char[][LEN]); /* funzione che dato un vettore ordinato stampa tutti i nomi con un'iniziale inserita dall'utente */
 
 FILE *fp;                           /* puntatore al file "rubrica.txt" */
 
@@ -70,6 +71,7 @@ int main (int argc, char const *argv[])
         printf ("5. Visualizzazione numero per nome\n");
         printf ("6. Sorting della rubrica per nome\n");
         printf ("7. Ricerca binaria di un nome su rubrica ordinata\n");
+        printf ("8. Ricerca tramite lettera\n");
         printf ("> ");
         choise = getchar ();
         getchar ();
@@ -78,6 +80,16 @@ int main (int argc, char const *argv[])
         {
             case '0':
                 printf ("Uscita dal programma...\n");
+                fp = fopen ("rubrica.txt", "w");
+                for (i = 0; i < lastIndex + 1; i++)
+                {
+                    for (j = 0; mat[i][j] != '\0'; j++)
+                        fprintf (fp, "%c", mat[i][j]);
+                    fprintf (fp, "\n");
+                }
+                fflush (fp);
+                fclose (fp);
+                printf ("Dati salvati correttamente\n");
                 exit (0);
             
             case '1':
@@ -122,7 +134,14 @@ int main (int argc, char const *argv[])
                 choise = 0;
                 break;
 
+            case '8':
+                printf ("Ricerca per lettera...\n");
+                letterSearch (&lastIndex, mat);
+                choise = 0;
+                break;
+
             default:
+                printf ("Input errato\n");
                 break;
         }
     }
@@ -456,5 +475,37 @@ void binary (int *lastIndex, char mat[][LEN])
 
 
     return ;
+}
+
+void letterSearch (int *lastIndex, char mat[][LEN])
+{
+    char letter;        /* lettera iniziale da cercare */
+    char fileName[LEN]; /* stringa corrispondente */
+
+    int out;            /* flag */
+    int c;              /* carattere in ingresso */
+    int i, j;           /* contatori */
+
+    i = 0;
+
+    
+    /* assegnamento di letter */
+    printf ("Inserire la lettera > ");
+    letter = getchar ();
+    getchar ();
+
+    /* scan fino alla lettera corrispondente */
+    for (out = i = 0; i <= *lastIndex && !out && mat[i][0] > letter; i++)
+        while (mat[i][0] == letter && i <= *lastIndex)
+        {
+            /* copia della stringa */
+            out = 1;
+            for (j = 0; mat[i][j] != '\0'; j++)
+                fileName[j] = mat[i][j];
+            fileName[j] = '\0';
+
+            /* esito */
+            printf ("%d >> %s\n", i++, fileName);
+        }
 }
 // Marco Fiorillo 21/09/2021
