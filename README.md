@@ -287,4 +287,7 @@ Soluzione agli esercizi e riassunto del libro
  13.9 Esercizi (15/17) --> 13.9 Esercizi (15/17)
 
 [5/10/2021]
+ 13.9 Esercizi (15/17) --> 13.9 Esercizi (15/17)
+
+[6/10/2021]
  13.9 Esercizi (15/17) -->
