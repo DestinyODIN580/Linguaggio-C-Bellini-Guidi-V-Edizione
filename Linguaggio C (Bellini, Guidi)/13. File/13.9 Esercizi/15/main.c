@@ -15,12 +15,14 @@
 #include <time.h>
 
 #define LEN 100
+#define YEAR 1997
 
 void new (void);
 
 int biggestSov (void);
 void biggestSoc (void);
 int itoa (char [], int);
+int sov1997 (void);
 
 FILE *fp;
 
@@ -34,6 +36,9 @@ int main (int argc, char const *argv[])
         printf ("MENU\n");
         printf ("0. Uscire\n");
         printf ("1. Nuova sovvenzione\n");
+        printf ("2. Sovvenzione piu' grande...\n");
+        printf ("3. Sede sovvenzione piu' grande...\n");
+        printf ("4. Totale sovvenzioni 1997...\n");
         printf ("> ");
 
         c = getchar ();
@@ -62,6 +67,12 @@ int main (int argc, char const *argv[])
             case '3':
                 printf ("Sovvenzione piu' grande...\n");
                 biggestSoc ();
+                c = 0;
+                break;
+                
+            case '4':
+                printf ("Sovvenzione 1997...\n");
+                printf ("Numero di sovvenzioni del 1997 >> %d\n", sov1997 ());
                 c = 0;
                 break;
 
@@ -104,7 +115,15 @@ void new ()
         buffer[i++] = c;
     buffer[i] = '\0';
 
-    fprintf (fp, "Socio >> %s\n", buffer);
+    fprintf (fp, "Socio >> %s", buffer);
+
+    printf ("Inserire il cognome del socio >> ");
+    i = 0;
+    while ((c = getchar ()) != '\n')
+        buffer[i++] = c;
+    buffer[i] = '\0';
+
+    fprintf (fp, " %s\n", buffer);
 
     printf ("Totale importo >> ");
     i = 0;
@@ -138,7 +157,7 @@ int biggestSov ()
     rewind (fp);
     while (!feof (fp))
     {
-        fscanf (fp, "Sede >> %s\nSocio >> %s\nImporto >> %d\nData >> %s %s  %s %s %s\n\n", buffer, buffer, &current, buffer, buffer, buffer, buffer, buffer);
+        fscanf (fp, "Sede >> %s\nSocio >> %s %s\nImporto >> %d\nData >> %s %s  %s %s %s\n\n", buffer, buffer, buffer, &current, buffer, buffer, buffer, buffer, buffer);
 
         if (current > max)
             max = current;
@@ -173,7 +192,7 @@ void biggestSoc ()
     rewind (fp);
     while (!feof (fp))
     {
-        fscanf (fp, "Sede >> %s\nSocio >> %s\nImporto >> %s\nData >> %s %s  %s %s %s\n\n", sed, buffer, current, buffer, buffer, buffer, buffer, buffer);
+        fscanf (fp, "Sede >> %s\nSocio >> %s %s\nImporto >> %s\nData >> %s %s  %s %s %s\n\n", sed, buffer, buffer, current, buffer, buffer, buffer, buffer, buffer);
 
         for (out = i = 0; i < lastIndex; i++)
         {
@@ -241,6 +260,61 @@ void biggestSoc ()
     printf ("#--\n\n");
 
     return ;
+}
+
+int sov1997 ()
+{
+    char buffer[LEN];
+    int current;
+    int i;
+
+    i = 0;
+
+    fp = fopen ("sovvenzioni.txt", "r");
+
+
+    rewind (fp);
+    while (!feof (fp))
+    {
+        fscanf (fp, "Sede >> %s\nSocio >> %s %s\nImporto >> %s\nData >> %s %s  %s %s %d\n\n", buffer, buffer, buffer, buffer, buffer, buffer, buffer, &current);
+
+        if (current == YEAR)
+            i++;
+    }
+
+    return i;
+
+
+}
+
+int sov1997 ()
+{
+    char buffer[LEN];
+    char year;
+    char month;
+    char year;
+    char name;
+    char surname;
+    int current;
+    int i;
+
+    i = 0;
+
+    fp = fopen ("sovvenzioni.txt", "r");
+
+
+    rewind (fp);
+    while (!feof (fp))
+    {
+        fscanf (fp, "Sede >> %s\nSocio >> %s\nImporto >> %s\nData >> %s %s  %s %s %d\n\n", buffer, name, buffer, buffer, buffer, buffer, buffer, &current);
+
+        if (current == YEAR)
+            i++;
+    }
+
+    return i;
+
+
 }
 
 int itoa (char s[], int n)

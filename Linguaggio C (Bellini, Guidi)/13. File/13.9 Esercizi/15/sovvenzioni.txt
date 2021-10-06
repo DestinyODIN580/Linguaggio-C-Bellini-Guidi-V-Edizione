@@ -1,0 +1,10 @@
+Sede >> f
+Socio >> g
+Importo >> 12
+Data >> Wed Oct  6 21:49:57 2021
+
+Sede >> d
+Socio >> f
+Importo >> 1997
+Data >> Wed Oct  6 22:19:55 2021
+
