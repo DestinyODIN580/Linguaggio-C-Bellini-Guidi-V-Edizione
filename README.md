@@ -302,4 +302,7 @@ Soluzione agli esercizi e riassunto del libro
  13.9 Esercizi (15/17) --> 13.9 Esercizi (15/17)
 
 [10/10/2021]
- 13.9 Esercizi (15/17) --> 
+ 13.9 Esercizi (15/17) --> 14.2 Liste lineari
+
+[11/10/2021]
+ 14.2 Liste lineari -->
