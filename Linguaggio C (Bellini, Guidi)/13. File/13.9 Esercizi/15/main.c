@@ -16,21 +16,30 @@
 
 #define LEN 100
 #define YEAR 1997
+#define MDAY 26
+#define MMONTH 11
+#define MYEAR 1995
 
-void new (void);
 
-int biggestSov (void);
-void biggestSoc (void);
-int itoa (char [], int);
-int sov1997 (void);
+void sov1995 (void);        /* sovvenzioni 1995 */
+void vercelli (void);       /* importi Vercelli */
+void new (void);            /* nuovo versamento */
+void biggestSoc (void);     /* sede sovvenzione piu'grande */
+
+int biggestSov (void);      /* sovvenzione piu'grande */
+int itoa (char [], int);    /* devilisse.h */
+int sov1997 (void);         /* marco taddei, 1995 */
 
 FILE *fp;
 
 int main (int argc, char const *argv[])
 {
-    int c;
+    int c;  /* carattere in ingresso */
+
+    c = 0;
 
 
+    /* scelta del menu */
     while (!c)
     {
         printf ("MENU\n");
@@ -39,6 +48,8 @@ int main (int argc, char const *argv[])
         printf ("2. Sovvenzione piu' grande...\n");
         printf ("3. Sede sovvenzione piu' grande...\n");
         printf ("4. Totale sovvenzioni 1997...\n");
+        printf ("5. Marco Taddei - 1995\n");
+        printf ("6. Versamenti sede vercelli\n");
         printf ("> ");
 
         c = getchar ();
@@ -76,6 +87,18 @@ int main (int argc, char const *argv[])
                 c = 0;
                 break;
 
+            case '5':
+                printf ("Sovvenzione 1995...\n");
+                sov1995 ();
+                c = 0;
+                break;
+
+            case '6':
+                printf ("Versamento Vercelli...\n");
+                vercelli ();
+                c = 0;
+                break;
+
             default:
                 printf ("Input errato...\n");
                 break;
@@ -90,10 +113,10 @@ int main (int argc, char const *argv[])
 
 void new ()
 {
-    char buffer[LEN];
+    char buffer[LEN];   /* buffer */
 
-    int c;
-    int i;
+    int c;              /* carattere in ingresso */
+    int i;              /* contatore */
 
     i = 0;
 
@@ -102,6 +125,8 @@ void new ()
     time_t currentTime;
     time (&currentTime);
 
+
+    /* scrittura sul file dei dati */
     printf ("Inserire la sede >> ");
     while ((c = getchar ()) != '\n')
         buffer[i++] = c;
@@ -146,14 +171,16 @@ void new ()
 
 int biggestSov ()
 {
-    char buffer[LEN];
-    int current;
-    int max;
+    char buffer[LEN];   /* buffer */
+    int current;        /* sovvenzione corrente */
+    int max;            /* sovvenzione massima */
 
     max = -1;
 
     fp = fopen ("sovvenzioni.txt", "r");
 
+
+    /* ricerca di max */
     rewind (fp);
     while (!feof (fp))
     {
@@ -162,33 +189,34 @@ int biggestSov ()
         if (current > max)
             max = current;
     }
-
     fclose (fp);
+
 
     return max;
 }
 
 void biggestSoc ()
 {
-    char mat[LEN][10];
-    char buffer[LEN];
-    char sed[LEN];
+    char mat[LEN][10];      /* matrice dei dati */
+    char buffer[LEN];       /* buffer */
+    char sed[LEN];          /* sede */
+    char current[LEN];      /* riga corrent */
 
-    int lastIndex;
-    int in;
-    int aux;
-    int len;
-    int out;
-    char current[LEN];
-    int max;
-    int i, j, k;
+    int lastIndex;          /* ultimo indice */
+    int in;                 /* flag */
+    int aux;                /* variabile di supporto */
+    int len;                /* lunghezza */
+    int out;                /* flag */
+    int max;                /* massimo */
+    int i, j, k;            /* contatore */
 
     max = -1;
     lastIndex = out = in = 0;
 
-
     fp = fopen ("sovvenzioni.txt", "r");
 
+
+    /* ricerca della sede */
     rewind (fp);
     while (!feof (fp))
     {
@@ -250,6 +278,7 @@ void biggestSoc ()
         }
     }
 
+    /* esito della ricerca */
     printf (" // ----- //\n\n");
     for (i = 0; i < lastIndex; i++)
     {
@@ -264,15 +293,17 @@ void biggestSoc ()
 
 int sov1997 ()
 {
-    char buffer[LEN];
-    int current;
-    int i;
+    char buffer[LEN];   /* buffer */
+
+    int current;        /* anno corrente */
+    int i;              /* contatore */
 
     i = 0;
 
     fp = fopen ("sovvenzioni.txt", "r");
 
 
+    /* ricerca sovvenzioni 1997 */
     rewind (fp);
     while (!feof (fp))
     {
@@ -282,41 +313,104 @@ int sov1997 ()
             i++;
     }
 
+    fclose (fp);
     return i;
 
 
 }
 
-int sov1997 ()
+void sov1995 ()
 {
-    char buffer[LEN];
-    char year;
-    char month;
-    char year;
-    char name;
-    char surname;
-    int current;
-    int i;
+    char buffer[LEN];       /* buffer */
+    char name[LEN];         /* nome */
+    char strMonth[LEN];     /* cognome */
+    char import[LEN];       /* importo */
 
-    i = 0;
+    int out;                /* flag */
+    int day;                /* giorno */
+    int month;              /* mese */
+    int year;               /* anno */
 
-    fp = fopen ("sovvenzioni.txt", "r");
+    out = 0;
 
 
+    /* ricerca deversamenti nel 1995 di Marco Taddei */
     rewind (fp);
     while (!feof (fp))
     {
-        fscanf (fp, "Sede >> %s\nSocio >> %s\nImporto >> %s\nData >> %s %s  %s %s %d\n\n", buffer, name, buffer, buffer, buffer, buffer, buffer, &current);
+        fscanf (fp, "Sede >> %s\nSocio >> %s %s\nImporto >> %s\nData >> %s %s  %d %s %d\n\n", buffer, name, buffer, import, strMonth, &day, buffer, &year);
 
-        if (current == YEAR)
-            i++;
+        if (!strcmp (strMonth, "JAN"))
+            month = 1;
+        else if (!strcmp (strMonth, "Jan"))
+            month = 2;
+        else if (!strcmp (strMonth, "Feb"))
+            month = 3;
+        else if (!strcmp (strMonth, "Mar"))
+            month = 4;
+        else if (!strcmp (strMonth, "Apr"))
+            month = 5;
+        else if (!strcmp (strMonth, "May"))
+            month = 6;
+        else if (!strcmp (strMonth, "Jun"))
+            month = 7;
+        else if (!strcmp (strMonth, "Jul"))
+            month = 8;
+        else if (!strcmp (strMonth, "Sep"))
+            month = 9;
+        else if (!strcmp (strMonth, "Oct"))
+            month = 10;
+        else if (!strcmp (strMonth, "Nov"))
+            month = 11;
+        else
+            month = 12; 
+
+        if (day == MDAY)
+            if (month == MMONTH)
+                if (year == MYEAR)
+                {
+                    out = 1;
+                    printf ("Importo versato >> %s\n", import);
+                }    
+    }
+    fclose (fp);
+
+    if (!out)
+            printf ("Nessun versamento\n");
+
+
+    return ;
+}
+
+void vercelli ()
+{
+    char place[LEN];        /* sede */
+    char name[LEN];         /* nome */
+    char surname[LEN];      /* cognome */
+    char import[LEN];       /* importo */
+    char wDay[LEN];         /* giorno della settimana */
+    char month[LEN];        /* mese */
+    char hour[LEN];         /* ora */
+
+    int day;                /* giorno */
+    int year;               /* anno */
+
+
+    /* ricerca della sede di Vercelli */
+    while (!feof (fp))
+    {
+        fscanf (fp, "Sede >> %s\nSocio >> %s %s\nImporto >> %s\nData >> %s %s  %d %s %d\n\n", place, name, surname, import, wDay, month, &day, hour, &year);
+
+        if (!strcmp (place, "Vercelli"))
+            printf ("Sede >> %s\nSocio >> %s %s\nImporto >> %s\nData >> %s %s  %d %s %d\n\n", place, name, surname, import, wDay, month, day, hour, year);
+
     }
 
-    return i;
-
+    return ;
 
 }
 
+/* devilisse.h */
 int itoa (char s[], int n)
 {
 	int sign;
@@ -349,5 +443,4 @@ int itoa (char s[], int n)
 	
 	return ++i + j;
 }
-
-//
+// Marco Fiorillo 9/10/2021
