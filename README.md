@@ -305,4 +305,7 @@ Soluzione agli esercizi e riassunto del libro
  13.9 Esercizi (15/17) --> 14.2 Liste lineari
 
 [11/10/2021]
- 14.2 Liste lineari -->
+ 14.2 Liste lineari --> 14.4 Determinazione del maggiore di una lista
+
+[12/10/2021]
+ 14.4 Determinazione del maggiore di una lista -->
