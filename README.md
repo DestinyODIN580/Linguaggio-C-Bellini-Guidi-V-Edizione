@@ -308,4 +308,7 @@ Soluzione agli esercizi e riassunto del libro
  14.2 Liste lineari --> 14.4 Determinazione del maggiore di una lista
 
 [12/10/2021]
+ 14.4 Determinazione del maggiore di una lista --> 14.4 Determinazione del maggiore di una lista
+
+[13/10/2021]
  14.4 Determinazione del maggiore di una lista -->
