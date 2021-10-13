@@ -311,4 +311,7 @@ Soluzione agli esercizi e riassunto del libro
  14.4 Determinazione del maggiore di una lista --> 14.4 Determinazione del maggiore di una lista
 
 [13/10/2021]
- 14.4 Determinazione del maggiore di una lista -->
+ 14.4 Determinazione del maggiore di una lista --> 14.6 Soluzioni ricorsive
+
+[14/10/2021]
+ 14.6 Soluzioni ricorsive --> 
