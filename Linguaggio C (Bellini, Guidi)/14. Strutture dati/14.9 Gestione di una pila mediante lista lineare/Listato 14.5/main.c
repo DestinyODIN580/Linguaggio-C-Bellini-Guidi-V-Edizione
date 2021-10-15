@@ -1,37 +1,42 @@
-/* Listato 14.4 - Gestione di una pila implementata mediante un array */
+/* Listato 14.5 Gestione di una pila implementata mediante una lista */
 
 /* GESTIONE DI UNA PILA
     Operazioni di inserimento, eliminazione e
-    visualizzazione. Utilizza un array di strutture
+    visualizzazione. Utilizza una lista lineare
     per implementare la pila */
 
 #include <stdio.h>
 #include <malloc.h>
 
-#define LUN_PILA 10
+struct elemento
+{
+    int inf;
+    struct elemento *pun;
+};
 
 void gestione_pila (void);
-void visualizzazione_pila (int *, int);
+void visualizzazione_pila (struct elemento *);
 
-inserimento (int *, int *, int);
-eliminazione (int *, int *, int *);
-pila_vuota (int);
+int pila_vuota (struct elemento *);
+
+struct elemento *inserimento (struct elemento *, int ele);
+
+struct elemento *eliminazione (struct elemento *, int *);
 
 int main (int argc, char const *argv[])
 {
     gestione_pila();
 }
 
-void gestione_pila (void)
+void gestione_pila(void)
 {
-    int pila[LUN_PILA];
-    int punt_testa = 0;
+    struct elemento *punt_testa = NULL;
+
     int scelta = -1, ele;
 
     char pausa;
 
-
-    while (scelta != 0)
+    while (scelta != 0) 
     {
         printf ("\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n");
         printf ("\t\tESEMPIO UTILIZZO STRUTTURA ASTRATTA: PILA");
@@ -46,18 +51,15 @@ void gestione_pila (void)
         switch (scelta)
         {
             case 1:
-                if (punt_testa >= LUN_PILA)
+                printf ("Inserire un elemento: ");
+                scanf ("%d", &ele);
+                punt_testa = inserimento (punt_testa, ele);
+                if (punt_testa == NULL)
                 {
                     printf ("Inserimento impossibile: ");
                     printf ("memoria disponibile terminata");
                     printf ("\n\n Qualsiasi tasto per continuare...");
                     scanf ("%c%c", &pausa, &pausa);
-                }
-                else
-                {
-                    printf ("Inserire un elemento: ");
-                    scanf ("%d", &ele);
-                    punt_testa = inserimento (pila, &punt_testa, ele);
                 }
                 break;
 
@@ -70,46 +72,66 @@ void gestione_pila (void)
                 }
                 else
                 {
-                    punt_testa = eliminazione (pila, &punt_testa, &ele);
-                    printf ("Eliminato: %d", ele);
+                    punt_testa = eliminazione (punt_testa, &ele);
+                    printf ("Eliminato: %d", ele );
                     printf ("\n\n Qualsiasi tasto per continuare...");
                     scanf ("%c%c", &pausa, &pausa);
                 }
                 break;
 
             case 3:
-                visualizzazione_pila (pila, punt_testa);
+                visualizzazione_pila (punt_testa);
                 printf ("\n\n Qualsiasi tasto per continuare...");
                 scanf ("%c%c", &pausa, &pausa);
                 break;
         }
     }
 }
-
-void visualizzazione_pila (int *pila, int p)
+void visualizzazione_pila (struct elemento *p)
 {
+    struct elemento *paus = p;
+
+
     printf ("\n<------ Testa della pila ");
 
-    while (p >= 1)
-        printf ("\n%d", pila[--p]);
+    while (paus != NULL)
+    {
+        printf("\n%d", paus->inf);
+        paus = paus->pun;
+    }
+}
+struct elemento *inserimento (struct elemento *p, int ele)
+{
+    struct elemento *paus;
+
+
+    paus = (struct elemento *) malloc (sizeof (struct elemento));
+
+    if (paus == NULL)
+        return (NULL);
+
+    paus->pun = p;
+    p = paus;
+    p->inf = ele;
+
+    return(p);
 }
 
-inserimento (int *pila, int *p, int ele)
+struct elemento *eliminazione (struct elemento *p, int *ele)
 {
-    pila[*p] = ele;
-    ++*p;
-    return(*p);
-}
+    struct elemento *paus;
 
-eliminazione (int *pila, int *p, int *ele)
-{
-    --*p;
-    *ele = pila[*p];
-    return(*p);
+
+    *ele = p->inf;
+    paus = p;
+    p = p->pun;
+
+    free (paus);
+    return (p);
 }
-int pila_vuota (int p)
+int pila_vuota (struct elemento *p)
 {
-    if (p == 0)
+    if (p == NULL)
         return(1);
     else
         return(0);

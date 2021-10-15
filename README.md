@@ -317,4 +317,7 @@ Soluzione agli esercizi e riassunto del libro
  14.6 Soluzioni ricorsive --> 14.6 Soluzioni ricorsive
 
 [15/10/2021]
- 14.6 Soluzioni ricorsive -->
+ 14.6 Soluzioni ricorsive --> 14.14 Esercizi (1/15)
+
+[16/10/2021]
+ 14.14 Esercizi (2/15) -->

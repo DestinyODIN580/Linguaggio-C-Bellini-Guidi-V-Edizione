@@ -1,4 +1,4 @@
-/* 143
+/* 143.
     Modificare a scelta alcuni dei programmi visti nei capitoli precedenti in modo da lavorare, invece che su vettori in
     memoria centrale, su file in memoria di massa.
 
