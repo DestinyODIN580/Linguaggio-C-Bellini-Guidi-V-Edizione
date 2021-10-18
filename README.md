@@ -326,4 +326,7 @@ Soluzione agli esercizi e riassunto del libro
  14.14 Esercizi (4/15) --> 14.14 Esercizi (9/15)
 
 [18/10/2021]
- 14.14 Esercizi (10/15) -->
+ 14.14 Esercizi (10/15) --> 15.1 Alberi bibari
+
+[19/10/2021]
+ 15.2 Implementazione di alberi binari -->
