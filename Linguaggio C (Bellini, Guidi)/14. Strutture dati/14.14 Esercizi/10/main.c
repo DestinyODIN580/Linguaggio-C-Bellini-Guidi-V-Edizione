@@ -46,7 +46,7 @@ int main (int argc, char const *argv[])
     origin3 = p3 = (struct list3 *) malloc (sizeof (struct list3));
     origin2 = p2 = (struct list2 *) malloc (sizeof (struct list2));
     origin1 = p1 = (struct list1 *) malloc (sizeof (struct list1));
-    
+
 
     /* assegnazione di input */
     printf ("Inserire elemento [%2d] lista %d > ", i++, j);
@@ -59,14 +59,14 @@ int main (int argc, char const *argv[])
     else
     {
         p1->num = input;
-        p1->bridge = (struct list1 *)malloc(sizeof(struct list1));
+        p1->bridge = (struct list1 *) malloc (sizeof (struct list1));
         p1 = p1->bridge;
 
         /* popolamento della struttura */
         while (!out)
         {
-            printf("Inserire elemento [%2d] lista %d > ", i++, j);
-            scanf("%d", &input);
+            printf ("Inserire elemento [%2d] lista %d > ", i++, j);
+            scanf ("%d", &input);
 
             if (!input)
             {
@@ -76,7 +76,7 @@ int main (int argc, char const *argv[])
             else
             {
                 p1->num = input;
-                p1->bridge = (struct list1 *)malloc(sizeof(struct list1));
+                p1->bridge = (struct list1 *) malloc (sizeof (struct list1));
                 p1 = p1->bridge;
             }
 
@@ -87,7 +87,7 @@ int main (int argc, char const *argv[])
 
     /* assegnazione di input */
     printf ("Inserire elemento [%2d] lista %d > ", i++, ++j);
-    scanf("%d", &input);
+    scanf ("%d", &input);
     out = 0;
     i = 1;
 
@@ -98,14 +98,14 @@ int main (int argc, char const *argv[])
     else
     {
         p2->num = input;
-        p2->bridge = (struct list2 *)malloc(sizeof(struct list2));
+        p2->bridge = (struct list2 *) malloc (sizeof (struct list2));
         p2 = p2->bridge;
 
         /* popolamento della struttura */
         while (!out)
         {
-            printf("Inserire elemento [%2d] lista %d > ", i++, j);
-            scanf("%d", &input);
+            printf ("Inserire elemento [%2d] lista %d > ", i++, j);
+            scanf ("%d", &input);
 
             if (!input)
             {
@@ -115,7 +115,7 @@ int main (int argc, char const *argv[])
             else
             {
                 p2->num = input;
-                p2->bridge = (struct list2 *)malloc(sizeof(struct list2));
+                p2->bridge = (struct list2 *) malloc (sizeof (struct list2));
                 p2 = p2->bridge;
             }
         }
@@ -132,11 +132,11 @@ int main (int argc, char const *argv[])
         {
             p3->num = p1->num;
             p1 = p1->bridge;
-            p3->bridge = (struct list3 *)malloc(sizeof(struct list3));
+            p3->bridge = (struct list3 *) malloc (sizeof (struct list3));
             p3 = p3->bridge;
             p3->num = p2->num;
             p2 = p2->bridge;
-            p3->bridge = (struct list3 *)malloc(sizeof(struct list3));
+            p3->bridge = (struct list3 *) malloc (sizeof (struct list3));
             p3 = p3->bridge;
         }
     }
@@ -149,7 +149,7 @@ int main (int argc, char const *argv[])
         {
             p3->num = p2->num;
             p2 = p2->bridge;
-            p3->bridge = (struct list3 *)malloc(sizeof(struct list3));
+            p3->bridge = (struct list3 *) malloc (sizeof (struct list3));
             p3 = p3->bridge;
         }
     else
@@ -157,19 +157,20 @@ int main (int argc, char const *argv[])
         {
             p3->num = p1->num;
             p1 = p1->bridge;
-            p3->bridge = (struct list3 *)malloc(sizeof(struct list3));
+            p3->bridge = (struct list3 *) malloc (sizeof (struct list3));
             p3 = p3->bridge;
         }
     p3->bridge = NULL;
 
     /* esito */
     p3 = origin3;
-    printf("Lista fusa > ");
+    printf ("Lista fusa > ");
     while (p3->bridge != NULL)
     {
-        printf("%d -- ", p3->num);
+        printf ("%d -- ", p3->num);
         p3 = p3->bridge;
     }
+
 
     printf ("\n");
     return 0;
