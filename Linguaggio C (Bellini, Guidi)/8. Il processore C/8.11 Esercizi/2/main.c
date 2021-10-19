@@ -4,8 +4,9 @@
     un numero con una funzione o con una macro?
 */
 
-/* tramite le macro i processi sono piu veloci e in termini di lunghezza
-    del codice per operazioni cosi piccole sono molto piu convenienti */
+/* tramite le macro per quanto riguarda i valori da sostituire vi e'un meccanismo di "trova e sostituisci"
+    piu'che di assegnazione, che sono piu'lenti. Inoltre usare una "funzione" cubo invece che ogni volta scrivere
+    x*x*x e'piu'comodo al programmatore */
 
 #include <stdio.h>
 
