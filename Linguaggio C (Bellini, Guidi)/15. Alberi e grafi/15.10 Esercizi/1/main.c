@@ -3,14 +3,15 @@
     nodi vista nel primo esempio di questo capitolo.
 */
 
-#include <stdio.h>
-#include <stdlib.h>
+void postOrder (struct node *root)
+{   
+    if (root == NULL)
+        return;
 
-int main (int argc, char const *argv[])
-{
+    postOrder (root->left);
+    postOrder (root->right);
 
-
-    printf ("\n");
-    return 0;
+    /* esito */
+    printf ("%d", root->value);
 }
-//
+// Marco Fiorillo 20/10/2021
