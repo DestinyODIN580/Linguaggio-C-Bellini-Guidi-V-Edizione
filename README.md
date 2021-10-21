@@ -1,4 +1,4 @@
-# Programmazione
+# Programmazione - Linguaggio C (Bellini, Guidi) V°Edizione
 Soluzione agli esercizi e riassunto del libro
 # [3/07/2021] --> [22/10/2021]
 
@@ -340,4 +340,3 @@ Soluzione agli esercizi e riassunto del libro
 
 [22/10/2021]
  16.9 Esercizi (3/5) --> chiusura della repository
- 
