@@ -335,4 +335,7 @@ Soluzione agli esercizi e riassunto del libro
  15.10 Esercizi (1/15) --> 15.10 Esercizi (5/15)
 
 [21/10/2021]
- 15.10 Esercizi (6/15) -->
+ 15.10 Esercizi (6/15) --> 16.9 Esercizi (1/4)
+
+[22/10/2021]
+ 16.9 Esercizi (2/5) -->
