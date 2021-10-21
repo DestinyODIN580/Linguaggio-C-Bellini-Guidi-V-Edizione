@@ -37,7 +37,7 @@ int main (int argc, char const *argv[])
     mat_adiacenze();        /* Creazione della matrice di adiacenze */
     vis_mat_adiacenze();    /* Visualizzazione della matrice */
     successori();           /* Creazione delle liste di successori */
-    visita();               /* Visual. dei successori di ogni nodo */    
+    viewFromKey(1);               /* Visual. dei successori di ogni nodo */    
 }
 
 /* Crea la matrice di adiacenze */
@@ -132,23 +132,39 @@ void crea_succ (int i, int j)
 
 /* Per ogni nodo del grafo restituisce i suoi successori.
     Lavora sulle liste di successori */
-void visita (void)
+
+
+
+void viewFromKey (int key)
 {
     int i;
 
-    struct successore *p;
-
-
-    printf ("\n");
-    for (i = 0; i < n; i++)
+    printf("\n[%c] ha come successori: ", s[key].inf);
+    struct successore *p = s[key].pun;
+    while (p != NULL)
     {
-        printf ("\n[%c] ha come successori: ", s[i].inf);
-        p = s[i].pun;
-        while (p != NULL)
-        {
-            printf (" %c", s[p->inf].inf);
-            p = p->pun;
-        }
+        printf(" %c", s[p->inf].inf);
+        p = p->pun;
     }
 }
+/*
+void visita (void)
+{
+int i;
+
+struct successore *p;
+
+
+printf ("\n");
+for (i = 0; i < n; i++)
+{
+    printf ("\n[%c] ha come successori: ", s[i].inf);
+    p = s[i].pun;
+    while (p != NULL)
+    {
+        printf (" %c", s[p->inf].inf);
+        p = p->pun;
+    }
+}
+}*/
 // Marco Fiorillo 19/10/2021

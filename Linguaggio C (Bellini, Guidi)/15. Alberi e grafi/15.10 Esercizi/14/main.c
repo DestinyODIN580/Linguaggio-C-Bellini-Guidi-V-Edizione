@@ -1,13 +1,12 @@
-/* 163.
-    Scrivere una funzione che calcoli il numero di livelli di un albero binario memorizzato in una
-    lista doppia.
+/* 172.
+    Scrivere una funzione che calcoli il numero di livelli di un albero memorizzato in una lista multipla.
 */
 
-int findHeight (struct node *root)
+int findHeight(struct node *root)
 {
     int leftHeight;     /* altezza sinistra */
     int rightHeight;    /* altezza destra */
-
+    int other;          /* altri nodi particlari del grafo */
 
     if (root == NULL)
         return -1;
@@ -15,11 +14,14 @@ int findHeight (struct node *root)
     /* ricorsione */
     leftHeight = findHeight(root->left);
     rightHeight = findHeight(root->right);
+    other = findHeight (root->other);
 
     /* esito */
     if (leftHeight > rightHeight)
         return leftHeight + 1;
-    else
+    else if (rightHeight > leftHeight)
         return rightHeight + 1;
+    else 
+        return other + 1
 }
-// Marco Fiorillo 20/10/2021
+// Marco Fiorillo 21/10/2021
