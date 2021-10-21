@@ -338,4 +338,6 @@ Soluzione agli esercizi e riassunto del libro
  15.10 Esercizi (6/15) --> 16.9 Esercizi (2/4)
 
 [22/10/2021]
- 16.9 Esercizi (3/5) -->
+ 16.9 Esercizi (3/5) --> chiusura della repository
+
+# [3/07/2021] --> [22/10/2021]
