@@ -1,4 +1,4 @@
-# Programmazione - Linguaggio C (Bellini, Guidi) V°Edizione
+# Linguaggio C (Bellini, Guidi) V°Edizione
 Soluzione agli esercizi e riassunto del libro
 # [3/07/2021] --> [22/10/2021]
 
