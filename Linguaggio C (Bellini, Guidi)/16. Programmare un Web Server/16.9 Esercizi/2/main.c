@@ -1,4 +1,4 @@
-/* 173.
+/* 175.
     Realizzare un CGI che legga lo stato attuale da un file di log e lo presenti in forma di pagine HTML.
 */
 
