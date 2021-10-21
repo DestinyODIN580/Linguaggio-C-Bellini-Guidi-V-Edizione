@@ -1,5 +1,6 @@
 # Programmazione
 Soluzione agli esercizi e riassunto del libro
+# [3/07/2021] --> [22/10/2021]
 
 [3/07/2021]
   creazione della repository --> 1.4 Input e Output
@@ -339,5 +340,4 @@ Soluzione agli esercizi e riassunto del libro
 
 [22/10/2021]
  16.9 Esercizi (3/5) --> chiusura della repository
-
-# [3/07/2021] --> [22/10/2021]
+ 
