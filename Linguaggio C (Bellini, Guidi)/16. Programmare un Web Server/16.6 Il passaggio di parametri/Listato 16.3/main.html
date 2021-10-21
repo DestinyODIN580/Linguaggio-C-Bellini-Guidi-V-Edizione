@@ -1,0 +1,24 @@
+<!-- Listato 16.3 Codice HTML per la gestione della pagina delle Figure 16.6 e 16.7 -->
+
+<html>
+    <head>
+        <title>Sono Graditi i Vostri Commenti</title>
+    </head>
+
+    <body>
+        <h1>Sono Graditi i Vostri Commenti</h1>
+        <p>
+        <form action="http://localhost/comments.exe" method="POST">
+            Nome: <input type="text" name="name"><br>
+            e-mail: <input type="text" name="email"><br>
+            Inserite di seguito i Vostri commenti.<br>
+            Verificate anche di aver inserito correttamente il Vostro nome e
+            la Vostra e-mail.<br>
+            <textarea name="comments" rows="10" cols="60">
+            </textarea>
+            <br>
+            <input type="submit" value="Invia Commenti">
+            <input type="reset" value="Cancella Tutto">
+        </form>
+    </body>
+</html> 
