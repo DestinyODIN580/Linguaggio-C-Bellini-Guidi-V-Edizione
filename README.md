@@ -3,7 +3,7 @@ Soluzione agli esercizi e riassunto del libro
 # [3/07/2021] --> [22/10/2021]
 
 [3/07/2021]
-  creazione della repository --> 1.4 Input e Output
+  Creazione della repository --> 1.4 Input e Output
 
 [4/07/2021]
   1.5 Funzioni --> 3.2 Incrementi e decrementi
@@ -337,4 +337,4 @@ Soluzione agli esercizi e riassunto del libro
  15.10 Esercizi (6/15) --> 16.9 Esercizi (2/4)
 
 [22/10/2021]
- 16.9 Esercizi (3/5) --> chiusura della repository
+ 16.9 Esercizi (3/5) --> Chiusura della repository
