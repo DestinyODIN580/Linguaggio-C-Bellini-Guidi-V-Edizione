@@ -15,7 +15,7 @@ struct list
     struct list *bridge;
 };
 
-void printRevList (struct list *); /* epura list dai non divisori di n */
+void printRevList (struct list *); /* stampa list a partire dall'ultimo elemento */
 
 int main (int argc, char const *argv[])
 {

@@ -14,7 +14,7 @@ struct list
     struct list *bridge;
 };
 
-void sortedList (struct list *); /* epura list dai non divisori di n */
+void sortedList (struct list *); /* ordina list */
 
 int main (int argc, char const *argv[])
 {
