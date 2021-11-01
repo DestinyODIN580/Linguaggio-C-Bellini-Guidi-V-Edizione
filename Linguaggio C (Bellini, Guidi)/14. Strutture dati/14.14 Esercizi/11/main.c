@@ -47,7 +47,7 @@ int main (int argc, char const *argv[])
         p->num = input;
         pBack = p;
         p->back = NULL;
-        p->forw = (struct list *) malloc (sizeof(struct list));
+        p->forw = (struct list *) malloc (sizeof (struct list));
         p = p->forw;
 
         while (!out)
@@ -66,7 +66,7 @@ int main (int argc, char const *argv[])
                 p->num = input;
                 p->back = pBack;
                 pBack = p;
-                p->forw = (struct list *)malloc(sizeof(struct list));
+                p->forw = (struct list *) malloc (sizeof (struct list));
                 p = p->forw;
             }
         }
